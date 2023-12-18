@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { useColumnsStore } from '@/stores/columns';
 import Column from './Column.vue'
+import AddColumn from './AddColumn.vue'
 
 const { columnNames } = useColumnsStore();
 </script>
@@ -9,6 +10,7 @@ const { columnNames } = useColumnsStore();
 <template>
   <div class="board">
     <Column v-for="name in columnNames" :title="name" />
+    <AddColumn />
   </div>
 </template>
 

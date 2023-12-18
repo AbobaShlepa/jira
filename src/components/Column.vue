@@ -1,13 +1,18 @@
 <script setup lang="ts">
+import { useColumnsStore } from '@/stores/columns';
+
 defineProps<{
   title: string
 }>()
+
+const { removeColumn } = useColumnsStore();
 </script>
 
 <template>
   <div>
-    <div class="title">
+    <div class="card">
       <h3>{{ title }}</h3>
+      <button @click="removeColumn(title)">-</button>
     </div>
     <div class="card">
       Card 1
@@ -17,24 +22,3 @@ defineProps<{
     </div>
   </div>
 </template>
-
-<style scoped>
-.title {
-  border: 2px solid black;
-  margin: 10px;
-  width: 150px;
-  height: 50px;
-  text-align: center;
-  vertical-align: middle;
-}
-
-.card {
-  border: 2px solid black;
-  margin: 10px;
-  width: 150px;
-  height: 50px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-</style>
