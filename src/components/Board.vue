@@ -1,14 +1,14 @@
 <script setup lang="ts">
+import { useColumnsStore } from '@/stores/columns';
 import Column from './Column.vue'
+
+const { columnNames } = useColumnsStore();
 </script>
 
 
 <template>
   <div class="board">
-    <Column title="ToDo" />
-    <Column title="Blocked" />
-    <Column title="Development" />
-    <Column title="Done" />
+    <Column v-for="name in columnNames" :title="name" />
   </div>
 </template>
 
