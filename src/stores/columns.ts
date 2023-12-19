@@ -19,9 +19,15 @@ export const useColumnsStore = defineStore('counter', () => {
     columnNames.splice(index, 1);
   }
 
+  function swapColumns(firstIndex: number, secondIndex: number) {
+    [columnNames[firstIndex], columnNames[secondIndex]]
+      = [columnNames[secondIndex], columnNames[firstIndex]];
+  }
+
   return {
     columnNames,
     addColumn,
-    removeColumn
+    removeColumn,
+    swapColumns
   }
 })

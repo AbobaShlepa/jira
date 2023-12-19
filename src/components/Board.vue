@@ -2,20 +2,30 @@
 import { useColumnsStore } from '@/stores/columns';
 import Column from './Column.vue'
 import AddColumn from './AddColumn.vue'
+import Draggable from 'vuedraggable';
 
-const { columnNames } = useColumnsStore();
+const { columnNames, swapColumns } = useColumnsStore();
+function log(event: any) {
+  const oldIndex = event.moved.oldIndex;
+  const newIndex = event.moved.newIndex
+  swapColumns(oldIndex, newIndex);
+}
 </script>
 
 
 <template>
   <div class="board">
-    <Column v-for="name in columnNames" :title="name" />
+    <Draggable v-model="columnNames" class="board" @change="log">
+      <template #item="{ element: name }">
+        <Column :title="name" />
+      </template>
+    </Draggable>
     <AddColumn />
   </div>
 </template>
 
 <style scoped>
-  .board {
-    display: flex;
-  }
+.board {
+  display: flex;
+}
 </style>
