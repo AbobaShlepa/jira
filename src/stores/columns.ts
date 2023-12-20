@@ -1,21 +1,25 @@
-import { reactive, ref } from 'vue'
+import { reactive } from 'vue'
 import { defineStore } from 'pinia'
 
-export const useColumnsStore = defineStore('counter', () => {
+export const useColumnsStore = defineStore('columns', () => {
+  let counter = 1;
   let columnNames = reactive([
-    "ToDo",
-    "Blocked",
-    "Development",
-    "Done",
-    "Kek"
+    { id: counter++, name: "ToDo" },
+    { id: counter++, name: "Blocked" },
+    { id: counter++, name: "Development" },
+    { id: counter++, name: "QA" },
+    { id: counter++, name: "Done" },
   ])
 
   function addColumn(name: string) {
-    columnNames.push(name)
+    columnNames.push({
+      id: counter++,
+      name: name
+    })
   };
 
-  function removeColumn(name: string) {
-    const index = columnNames.indexOf(name);
+  function removeColumn(id: number) {
+    const index = columnNames.findIndex(x => x.id === id);
     columnNames.splice(index, 1);
   }
 
@@ -31,3 +35,8 @@ export const useColumnsStore = defineStore('counter', () => {
     swapColumns
   }
 })
+
+export type Column = {
+  id: number;
+  name: string;
+}
