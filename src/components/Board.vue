@@ -12,10 +12,9 @@ function swap(event: any) {
 }
 </script>
 
-
 <template>
   <div class="board">
-    <Draggable v-model="columnNames" class="board" @change="swap">
+    <Draggable v-model="columnNames" class="board" @change="swap" group="columns">
       <template #item="{ element: name }">
         <Column :title="name" />
       </template>
