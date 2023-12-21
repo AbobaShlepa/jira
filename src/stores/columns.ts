@@ -3,7 +3,7 @@ import { defineStore } from 'pinia'
 
 export const useColumnsStore = defineStore('columns', () => {
   let counter = 1;
-  let columnNames = reactive([
+  let columns = reactive<Column[]>([
     { id: counter++, name: "ToDo" },
     { id: counter++, name: "Blocked" },
     { id: counter++, name: "Development" },
@@ -12,31 +12,36 @@ export const useColumnsStore = defineStore('columns', () => {
   ])
 
   function addColumn(name: string) {
-    columnNames.push({
+    columns.push({
       id: counter++,
       name: name
     })
   };
 
   function removeColumn(id: number) {
-    const index = columnNames.findIndex(x => x.id === id);
-    columnNames.splice(index, 1);
+    const index = columns.findIndex(x => x.id === id);
+    columns.splice(index, 1);
   }
 
   function swapColumns(firstIndex: number, secondIndex: number) {
-    [columnNames[firstIndex], columnNames[secondIndex]]
-      = [columnNames[secondIndex], columnNames[firstIndex]];
+    [columns[firstIndex], columns[secondIndex]]
+      = [columns[secondIndex], columns[firstIndex]];
+  }
+
+  function getColumn(columnId: number) : Column {
+    return columns.find(x => x.id === columnId)!;
   }
 
   return {
-    columnNames,
+    columns,
     addColumn,
     removeColumn,
-    swapColumns
+    swapColumns,
+    getColumn
   }
 })
 
-export type Column = {
+export interface Column {
   id: number;
   name: string;
 }

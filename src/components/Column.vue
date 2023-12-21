@@ -1,27 +1,26 @@
 <script setup lang="ts">
-import { useColumnsStore } from '@/stores/columns';
-import Draggable from 'vuedraggable';
-import { ref } from 'vue'
-import TicketContainer from './TicketContainer.vue';
+  import { useColumnsStore } from '@/stores/columns';
+  import TicketContainer from './TicketContainer.vue';
+  import { useTicketsStore } from '@/stores/tickets';
+  import { storeToRefs } from 'pinia';
 
-defineProps<{
-  title: string
-}>()
+  const props = defineProps<{
+    columnId: number
+  }>();
 
-const tickets = ref([
-  { id: 1, title: 'Card 1' },
-  { id: 2, title: 'Card 2' },
-])
+  const { getColumn, removeColumn } = useColumnsStore();
+  const column = getColumn(props.columnId);
 
-const { removeColumn } = useColumnsStore();
+  const store = useTicketsStore();
+  const { getTickets } = storeToRefs(store);
 </script>
 
 <template>
   <div>
     <div class="card">
-      <h3>{{ title }}</h3>
-      <button @click="removeColumn(title)">-</button>
+      <h3>{{ column.name }}</h3>
+      <button @click="removeColumn(column.id)">-</button>
     </div>
-    <TicketContainer :tickets="tickets"/>
+    <TicketContainer :tickets="getTickets(column.id)" :column-id="column.id" />
   </div>
 </template>
