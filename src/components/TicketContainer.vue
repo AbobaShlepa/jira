@@ -41,12 +41,9 @@
 </template>
 
 <style>
-.card:hover {
-  border-color: blue;
-}
-
 .shaking {
   animation: tilt-shaking 0.15s infinite;
+  cursor: -webkit-grabbing;
 }
 
 @keyframes tilt-shaking {
@@ -55,7 +52,7 @@
   }
 
   25% {
-    transform: rotate(5deg);
+    transform: rotate(3deg);
   }
 
   50% {
@@ -63,11 +60,20 @@
   }
 
   75% {
-    transform: rotate(-5deg);
+    transform: rotate(-3deg);
   }
 
   100% {
     transform: rotate(0deg);
   }
+}
+
+.card {
+  text-align: center;
+  height: 75px;
+  background-color: aliceblue;
+  box-shadow: 0 0 1px 0;
+  margin: 5px;
+  cursor: -webkit-grab;
 }
 </style>

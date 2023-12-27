@@ -17,10 +17,25 @@
 
 <template>
   <div>
-    <div class="card">
-      <h3>{{ column.name }}</h3>
-      <button @click="removeColumn(column.id)">-</button>
+    <div class="column">
+      <div class="title">
+        <h3>{{ column.name }}</h3>
+        <button @click="removeColumn(column.id)">-</button>
+      </div>
+      <TicketContainer :tickets="getTickets(column.id)" :column-id="column.id" />
     </div>
-    <TicketContainer :tickets="getTickets(column.id)" :column-id="column.id" />
   </div>
 </template>
+
+<style>
+.column {
+  margin: 10px;
+  width: 200px;
+  height: 600px;
+  background-color: whitesmoke;
+}
+
+.title {
+  border: 2px solid black;
+}
+</style>
