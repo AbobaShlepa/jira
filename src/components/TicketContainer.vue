@@ -1,6 +1,6 @@
 <script setup lang="ts">
   import { useTicketsStore, type Ticket } from "@/stores/tickets";
-  import Draggable from "vuedraggable";
+  import draggable from "vuedraggable";
 
   const props = defineProps<{
     tickets: Ticket[];
@@ -30,8 +30,8 @@
 </script>
 
 <template>
-  <Draggable :list="tickets" item-key="id" group="tickets" @end="log" tag="div" :component-data="{ id: columnId }"
-    @choose="addAnimation" @unchoose="removeAnimation">
+  <draggable class="dropdown" :list="tickets" item-key="id" group="tickets" @end="log" tag="div"
+    :component-data="{ id: columnId }" @choose="addAnimation" @unchoose="removeAnimation">
     <template #item="{ element }">
       <div class="card" :id="element.id">
         <div class="number">
@@ -91,5 +91,10 @@
   text-align: left;
   margin-left: 10px;
   margin-right: 10px;
+}
+
+.dropdown {
+  min-height: 200px;
+  height: 100%;
 }
 </style>

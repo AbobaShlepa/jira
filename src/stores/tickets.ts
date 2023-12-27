@@ -4,7 +4,7 @@ import { defineStore } from 'pinia'
 export const useTicketsStore = defineStore('tickets', () => {
   let counter = 1;
   const tickets = reactive([
-    { id: counter++, title: 'Fix drag-n-drop drop range', assigneeId: null, columnId: 1 },
+    { id: counter++, title: 'Fix drag-n-drop drop range', assigneeId: null, columnId: 5 },
     { id: counter++, title: 'Add avatars for cards to visualise who is assigned', assigneeId: null, columnId: 1 },
     { id: counter++, title: 'Add ability to view ticket description', assigneeId: null, columnId: 1 },
   ])
