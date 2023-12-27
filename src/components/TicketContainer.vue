@@ -34,7 +34,12 @@
     @choose="addAnimation" @unchoose="removeAnimation">
     <template #item="{ element }">
       <div class="card" :id="element.id">
-        {{ element.title }}
+        <div class="number">
+          #{{ element.id }}
+        </div>
+        <div class="ticket-title">
+          {{ element.title }}
+        </div>
       </div>
     </template>
   </Draggable>
@@ -70,10 +75,21 @@
 
 .card {
   text-align: center;
-  height: 75px;
+  height: 100px;
   background-color: aliceblue;
   box-shadow: 0 0 1px 0;
   margin: 5px;
   cursor: -webkit-grab;
+}
+
+.number {
+  text-align: left;
+  margin-left: 10px;
+}
+
+.ticket-title {
+  text-align: left;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 </style>
