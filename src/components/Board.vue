@@ -3,7 +3,6 @@
   import Column from './Column.vue'
   import AddColumn from './AddColumn.vue'
   import Draggable from 'vuedraggable';
-  import { nextTick } from 'vue';
 
   const { columns, swapColumns } = useColumnsStore();
 
@@ -11,7 +10,6 @@
     const oldIndex = event.moved.oldIndex;
     const newIndex = event.moved.newIndex
     swapColumns(oldIndex, newIndex);
-    await nextTick();
   }
 </script>
 
@@ -22,7 +20,7 @@
         <Column :column-id="element.id" />
       </template>
     </Draggable>
-    <AddColumn />
+    <!-- <AddColumn /> -->
   </div>
 </template>
 
