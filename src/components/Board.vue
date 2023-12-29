@@ -2,7 +2,7 @@
   import { useColumnsStore } from '@/stores/columns';
   import Column from './Column.vue'
   import AddColumn from './AddColumn.vue'
-  import Draggable from 'vuedraggable';
+  import draggable from 'vuedraggable';
 
   const { columns, swapColumns } = useColumnsStore();
 
@@ -15,11 +15,11 @@
 
 <template>
   <div class="board">
-    <Draggable v-model="columns" class="board" @change="swap" group="columns">
+    <draggable v-model="columns" class="board" @change="swap" group="columns">
       <template #item="{ element }">
         <Column :column-id="element.id" />
       </template>
-    </Draggable>
+    </draggable>
     <!-- <AddColumn /> -->
   </div>
 </template>

@@ -1,6 +1,5 @@
 <script setup lang="ts">
   import { useTicketsStore, type Ticket } from "@/stores/tickets";
-  import { useUserStore, type User } from "@/stores/users";
   import draggable from "vuedraggable";
   import Card from '@/components/Card.vue'
 
@@ -10,7 +9,6 @@
   }>();
 
   const { changeColumn } = useTicketsStore();
-  const { getUser } = useUserStore();
 
   function log(event: any) {
     const to: HTMLElement = event.to;

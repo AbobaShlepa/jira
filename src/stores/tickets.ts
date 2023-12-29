@@ -5,7 +5,8 @@ export const useTicketsStore = defineStore('tickets', () => {
   let counter = 1;
   const tickets = reactive([
     { id: counter++, title: 'Fix drag-n-drop drop range', assigneeId: 1, columnId: 5 },
-    { id: counter++, title: 'Add avatars for cards to visualise who is assigned', assigneeId: null, columnId: 3 },
+    { id: counter++, title: 'Add avatars for cards to visualise who is assigned', assigneeId: 1, columnId: 5 },
+    { id: counter++, title: 'Add ability to toggle column editing', assigneeId: 1, columnId: 1 },
     { id: counter++, title: 'Add ability to view ticket description', assigneeId: null, columnId: 1 },
     { id: counter++, title: 'Fix everything broken during implementation', assigneeId: null, columnId: 1 },
   ])

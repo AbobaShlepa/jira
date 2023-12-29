@@ -1,30 +1,31 @@
 <script setup lang="ts">
-  import { ref } from 'vue';
+  import { usePermissionStore, PermissionType } from '@/stores/permissions';
+  import { storeToRefs } from 'pinia';
 
-  let shown = ref(true);
-
-  function toggleMenu() {
-    shown.value = !shown.value;
-  }
+  const store = usePermissionStore();
+  const { showMenu, removeColumns, editColumns } = storeToRefs(store);
+  const { togglePermission } = store;
 
 </script>
 
 <template>
   <div class="flex vertical">
-    <button @click="toggleMenu">
-      {{ shown ? 'Show' : 'Hide' }}
+
+    <button @click="() => togglePermission(showMenu)">
+      {{ showMenu.enabled ? 'Show' : 'Hide' }}
     </button>
-    <div v-bind:style="{ visibility: shown ? 'visible' : 'hidden' }">
+
+    <div v-bind:style="{ visibility: showMenu.enabled ? 'visible' : 'hidden' }">
       <button>
         +
       </button>
 
-      <button>
-        -
+      <button @click="() => togglePermission(removeColumns)">
+        Remove columns
       </button>
 
-      <button>
-        *
+      <button @click="() => togglePermission(editColumns)">
+        Edit columns
       </button>
 
       <button>

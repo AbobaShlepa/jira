@@ -3,6 +3,7 @@
   import TicketContainer from './TicketContainer.vue';
   import { useTicketsStore } from '@/stores/tickets';
   import { storeToRefs } from 'pinia';
+  import { PermissionType, usePermissionStore } from '@/stores/permissions';
 
   const props = defineProps<{
     columnId: number
@@ -13,6 +14,9 @@
 
   const store = useTicketsStore();
   const { getTickets } = storeToRefs(store);
+
+  const permissionStore = usePermissionStore();
+  const { removeColumns } = storeToRefs(permissionStore);
 </script>
 
 <template>
@@ -20,7 +24,7 @@
     <div class="column">
       <div class="title">
         <h3 class="column-name">{{ column.name }}</h3>
-        <button @click="removeColumn(column.id)">-</button>
+        <button v-if="removeColumns.enabled" @click="removeColumn(column.id)">-</button>
       </div>
       <TicketContainer :tickets="getTickets(column.id)" :column-id="column.id" />
     </div>
