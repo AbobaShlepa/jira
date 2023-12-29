@@ -28,6 +28,15 @@ export const useColumnsStore = defineStore('columns', () => {
       = [columns[secondIndex], columns[firstIndex]];
   }
 
+  function renameColumn(columnId: number, newName: string) {
+    const column = columns.find(x => x.id === columnId);
+    if (!column) {
+      return;
+    }
+
+    column.name = newName;
+  }
+
   function getColumn(columnId: number) : Column {
     return columns.find(x => x.id === columnId)!;
   }
@@ -37,7 +46,8 @@ export const useColumnsStore = defineStore('columns', () => {
     addColumn,
     removeColumn,
     swapColumns,
-    getColumn
+    getColumn,
+    renameColumn
   }
 })
 
