@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import { usePermissionStore, PermissionType } from '@/stores/permissions';
+  import { usePermissionStore } from '@/stores/permissions';
   import { storeToRefs } from 'pinia';
 
   const store = usePermissionStore();
@@ -9,13 +9,13 @@
 </script>
 
 <template>
-  <div class="flex vertical">
+  <div class="flex-container">
 
     <button @click="() => togglePermission(showMenu)">
       {{ showMenu.enabled ? 'Show' : 'Hide' }}
     </button>
 
-    <div v-bind:style="{ visibility: showMenu.enabled ? 'visible' : 'hidden' }">
+    <div v-bind:style="{ display: showMenu.enabled ? 'block' : 'none' }">
       <button>
         +
       </button>
@@ -40,7 +40,15 @@
   writing-mode: vertical-rl;
 }
 
+.flex-container {
+  display: flex;
+  flex-flow: column wrap;
+  width: 70px;
+  height: 250px;
+}
+
 button {
-  height: 100px;
+  height: 50px;
+  width: 70px;
 }
 </style>
