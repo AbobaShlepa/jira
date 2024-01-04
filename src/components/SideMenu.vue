@@ -3,7 +3,7 @@
   import { storeToRefs } from 'pinia';
 
   const store = usePermissionStore();
-  const { showMenu, removeColumns, editColumns } = storeToRefs(store);
+  const { showMenu, removeColumns, editColumns, addColumn } = storeToRefs(store);
   const { togglePermission } = store;
 
 </script>
@@ -16,8 +16,8 @@
     </button>
 
     <div v-bind:style="{ display: showMenu.enabled ? 'block' : 'none' }">
-      <button>
-        +
+      <button @click="() => togglePermission(addColumn)">
+        Add column
       </button>
 
       <button @click="() => togglePermission(removeColumns)">

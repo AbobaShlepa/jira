@@ -3,8 +3,12 @@
   import Column from './Column.vue'
   import AddColumn from './AddColumn.vue'
   import draggable from 'vuedraggable';
+  import { storeToRefs } from 'pinia';
+  import { usePermissionStore } from '@/stores/permissions';
 
   const { columns, swapColumns } = useColumnsStore();
+
+  const { addColumn } = storeToRefs(usePermissionStore());
 
   async function swap(event: any) {
     const oldIndex = event.moved.oldIndex;
@@ -20,7 +24,7 @@
         <Column :column-id="element.id" />
       </template>
     </draggable>
-    <!-- <AddColumn /> -->
+    <AddColumn v-if="addColumn.enabled" />
   </div>
 </template>
 
