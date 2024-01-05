@@ -19,7 +19,7 @@
 
 <template>
   <div class="board">
-    <draggable v-model="columns" class="board" @change="swap" group="columns">
+    <draggable v-model="columns" class="board" @change="swap" group="columns" item-key="id">
       <template #item="{ element }">
         <Column :column-id="element.id" />
       </template>
