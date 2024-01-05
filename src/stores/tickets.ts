@@ -15,16 +15,26 @@ export const useTicketsStore = defineStore('tickets', () => {
 
   const getTickets = computed(() => (columnId: number) => tickets.filter(x => x.columnId === columnId));
 
+  const getTicket = computed(() => (ticketId: number) => tickets.find(x => x.id === ticketId));
+
   function changeColumn(ticketId: number, columnId: number) {
     const ticket = tickets.find(x => x.id === ticketId)!;
     ticket.columnId = columnId;
+  }
+
+  function changeAssignee(ticketId: number, assigneeId: number) {
+    const ticket = tickets.find(x => x.id === ticketId)!;
+    ticket.assigneeId = assigneeId;
+    console.log(ticketId, assigneeId);
   }
 
   return {
     counter,
     tickets,
     getTickets,
-    changeColumn
+    getTicket,
+    changeColumn,
+    changeAssignee
   }
 })
 

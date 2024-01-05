@@ -3,7 +3,7 @@
   import { storeToRefs } from 'pinia';
 
   const store = usePermissionStore();
-  const { showMenu, removeColumns, editColumns, addColumn } = storeToRefs(store);
+  const { showMenu, removeColumns, editColumns, addColumn, addTicket } = storeToRefs(store);
   const { togglePermission } = store;
 
 </script>
@@ -28,8 +28,8 @@
         Edit columns
       </button>
 
-      <button>
-        *
+      <button @click="() => togglePermission(addTicket)">
+        Add ticket
       </button>
     </div>
   </div>

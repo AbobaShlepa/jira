@@ -1,18 +1,23 @@
 <script setup lang="ts">
+  import { usePermissionStore } from '@/stores/permissions';
   import type { Ticket } from '@/stores/tickets';
   import { useUserStore } from '@/stores/users';
+  import { storeToRefs } from 'pinia';
 
   const props = defineProps<{
     ticket: Ticket
   }>();
 
   const { getUser } = useUserStore();
+  const permissionStore = usePermissionStore();
+  const { toggleTicketPermission } = permissionStore;
+  const { viewTicket } = storeToRefs(permissionStore);
 
   const ticket = props.ticket;
 </script>
 
 <template>
-  <div class="container card" :id="ticket.id.toString()">
+  <div class="container card" :id="ticket.id.toString()" @click="() => toggleTicketPermission(viewTicket, ticket.id)">
     <div class="grid-item grid-number">
       <div class="ticket-number">
         #{{ ticket.id }}

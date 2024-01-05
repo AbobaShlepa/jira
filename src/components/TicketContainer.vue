@@ -31,7 +31,7 @@
 
 <template>
   <draggable class="dropdown" :list="tickets" item-key="id" group="tickets" @end="log" tag="div"
-    :component-data="{ id: columnId }" @choose="addAnimation" @unchoose="removeAnimation">
+    :component-data="{ id: columnId }" @start="addAnimation" @unchoose="removeAnimation">
     <template #item="{ element }">
       <Card :ticket="element" />
     </template>
