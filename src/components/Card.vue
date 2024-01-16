@@ -67,11 +67,6 @@
   width: 190px;
 }
 
-.avatar {
-  height: 35px;
-  border-radius: 50%;
-}
-
 .ticket-number {
   line-height: 35px;
 }

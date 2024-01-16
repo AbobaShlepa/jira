@@ -4,6 +4,7 @@
   import { useUserStore } from '@/stores/users';
   import { storeToRefs } from 'pinia';
   import { computed, ref } from 'vue';
+  import AssigneeSelector from './AssigneeSelector.vue';
 
   const { viewTicket } = storeToRefs(usePermissionStore());
   const { getTicket, changeAssignee } = useTicketsStore();
@@ -25,13 +26,8 @@
       <div class="title">
         <input v-model="ticket.title">
       </div>
-      <div class="assignee">
-        <select v-model="selected" @change="() => changeAssignee(ticket?.id!, selected)">
-          <option v-for="user in users" :value="user.id">
-            <img v-bind:src="user.avatar"> {{ user.name }}
-          </option>
-        </select>
-      </div>
+      <AssigneeSelector :assignee-id="ticket.assigneeId!"
+        v-on:assigneeChanged="(assigneeId) => changeAssignee(ticket?.id!, assigneeId)" />
     </div>
   </div>
 </template>
