@@ -1,5 +1,6 @@
 import { defineStore } from "pinia";
 import { ref } from "vue";
+import type { Ticket } from "./tickets";
 
 export const usePermissionStore = defineStore('permissions', () => {
 
@@ -7,7 +8,7 @@ export const usePermissionStore = defineStore('permissions', () => {
   const editColumns = ref<Permission>({ permissionType: PermissionType.EditColumns, enabled: false });
   const removeColumns = ref<Permission>({ permissionType: PermissionType.RemoveColumns, enabled: false });
   const addColumn = ref<Permission>({ permissionType: PermissionType.AddColumn, enabled: false });
-  const viewTicket = ref<TicketPermission>({ permissionType: PermissionType.ViewTicket, enabled: false, ticketId: null })
+  const viewTicket = ref<TicketPermission>({ permissionType: PermissionType.ViewTicket, enabled: false, ticketId: null, ticket: null })
   const addTicket = ref<Permission>({ permissionType: PermissionType.AddTicket, enabled: false })
 
   function togglePermission(togglingPermission: Permission) {
@@ -48,4 +49,5 @@ export type Permission = {
 
 export type TicketPermission = Permission & {
   ticketId: number | null;
+  ticket: Ticket | null;
 }

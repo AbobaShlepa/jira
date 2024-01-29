@@ -3,26 +3,32 @@
   import { storeToRefs } from 'pinia';
   import { computed } from 'vue';
   import User from './User.vue';
+  import { useTicketsStore } from '@/stores/tickets';
 
   const props = defineProps<{
-    assigneeId: number
+    ticketId: number
   }>();
+
+  const ticketStore = useTicketsStore();
+  const { getTicket } = ticketStore;
+  const ticket = getTicket(props.ticketId);
+  const assigneeId = computed(() => ticket?.assigneeId ?? 0);
 
   const store = useUserStore();
   const { getUser } = store;
   const { users } = storeToRefs(store);
-  const currentUser = computed(() => getUser(props.assigneeId));
-  const userList = computed(() => users.value.filter(x => x.id !== props.assigneeId));
+  const currentUser = computed(() => getUser(assigneeId.value));
+  const userList = computed(() => users.value.filter(x => x.id !== assigneeId.value));
 </script>
 
 <template>
   <div>
     <details>
       <summary>
-        <User :user="currentUser" />
+        <User :user="currentUser" :key="currentUser.id" />
       </summary>
       <div class="list">
-        <div v-for="user in userList">
+        <div v-for="user in  userList " :key="user.id">
           <User :user="user" v-on:click="() => $emit('assigneeChanged', user.id)" />
         </div>
       </div>

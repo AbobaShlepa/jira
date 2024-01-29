@@ -1,7 +1,6 @@
 <script setup lang="ts">
   import { usePermissionStore } from '@/stores/permissions';
   import { useTicketsStore } from '@/stores/tickets';
-  import { useUserStore } from '@/stores/users';
   import { storeToRefs } from 'pinia';
   import { computed, ref } from 'vue';
   import AssigneeSelector from './AssigneeSelector.vue';
@@ -9,11 +8,6 @@
   const { viewTicket } = storeToRefs(usePermissionStore());
   const { getTicket, changeAssignee } = useTicketsStore();
   const ticket = computed(() => viewTicket.value.ticketId ? getTicket(viewTicket.value.ticketId) : null);
-
-  const userStore = useUserStore();
-  const { getUser } = userStore;
-  const selected = ref(ticket.value?.assigneeId ? getUser(ticket.value?.assigneeId).id : 0)
-  const { users } = storeToRefs(userStore);
 
 </script>
 
@@ -26,7 +20,7 @@
       <div class="title">
         <input v-model="ticket.title">
       </div>
-      <AssigneeSelector :assignee-id="ticket.assigneeId!"
+      <AssigneeSelector :ticket-id="ticket.id"
         v-on:assigneeChanged="(assigneeId) => changeAssignee(ticket?.id!, assigneeId)" />
     </div>
   </div>
