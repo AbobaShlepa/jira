@@ -10,7 +10,7 @@
   }>();
 
   const ticketStore = useTicketsStore();
-  const { getTicket } = ticketStore;
+  const { getTicket, changeAssignee } = ticketStore;
   const ticket = getTicket(props.ticketId);
   const assigneeId = computed(() => ticket?.assigneeId ?? 0);
 
@@ -29,7 +29,7 @@
       </summary>
       <div class="list">
         <div v-for="user in  userList " :key="user.id">
-          <User :user="user" v-on:click="() => $emit('assigneeChanged', user.id)" />
+          <User :user="user" v-on:click="() => changeAssignee(props.ticketId, user.id)" />
         </div>
       </div>
     </details>

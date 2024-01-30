@@ -7,7 +7,7 @@ export const useTicketsStore = defineStore('tickets', () => {
     { id: counter++, title: 'Fix drag-n-drop drop range', assigneeId: 1, columnId: 5 },
     { id: counter++, title: 'Add avatars for cards to visualise who is assigned', assigneeId: 1, columnId: 5 },
     { id: counter++, title: 'Add ability to toggle column editing', assigneeId: 1, columnId: 5 },
-    { id: counter++, title: 'Add ability to view ticket description', assigneeId: null, columnId: 1 },
+    { id: counter++, title: 'Add ability to view ticket description', assigneeId: null, columnId: 3 },
     { id: counter++, title: 'Add board saving/loading', assigneeId: null, columnId: 1 },
     { id: counter++, title: 'Add tickets', assigneeId: null, columnId: 1 },
     { id: counter++, title: 'Fix everything broken during implementation', assigneeId: null, columnId: 1 },
@@ -44,4 +44,5 @@ export type Ticket = {
   title: string;
   assigneeId: number | null;
   columnId: number;
+  description: string;
 }

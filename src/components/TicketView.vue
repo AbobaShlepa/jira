@@ -2,26 +2,25 @@
   import { usePermissionStore } from '@/stores/permissions';
   import { useTicketsStore } from '@/stores/tickets';
   import { storeToRefs } from 'pinia';
-  import { computed, ref } from 'vue';
+  import { computed } from 'vue';
   import AssigneeSelector from './AssigneeSelector.vue';
 
   const { viewTicket } = storeToRefs(usePermissionStore());
-  const { getTicket, changeAssignee } = useTicketsStore();
+  const { getTicket } = useTicketsStore();
   const ticket = computed(() => viewTicket.value.ticketId ? getTicket(viewTicket.value.ticketId) : null);
 
 </script>
 
 <template>
   <div class="ticket-view" :class="viewTicket.enabled && viewTicket.ticketId ? '' : 'hidden'">
-    <div v-if="ticket">
+    <div v-if="ticket" :key="ticket.id">
       <div class="number">
         # {{ ticket.id }}
       </div>
       <div class="title">
         <input v-model="ticket.title">
       </div>
-      <AssigneeSelector :ticket-id="ticket.id"
-        v-on:assigneeChanged="(assigneeId) => changeAssignee(ticket?.id!, assigneeId)" />
+      <AssigneeSelector :ticket-id="ticket.id" />
     </div>
   </div>
 </template>
@@ -50,6 +49,4 @@ input {
   border-width: 0;
   line-height: 150%;
 }
-
-.assignee {}
 </style>
