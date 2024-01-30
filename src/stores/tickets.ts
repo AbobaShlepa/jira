@@ -3,11 +3,11 @@ import { defineStore } from 'pinia'
 
 export const useTicketsStore = defineStore('tickets', () => {
   let counter = 1;
-  const tickets = reactive([
+  const tickets = reactive<Ticket[]>([
     { id: counter++, title: 'Fix drag-n-drop drop range', assigneeId: 1, columnId: 5, description: '' },
     { id: counter++, title: 'Add avatars for cards to visualise who is assigned', assigneeId: 1, columnId: 5, description: '' },
     { id: counter++, title: 'Add ability to toggle column editing', assigneeId: 1, columnId: 5, description: '' },
-    { id: counter++, title: 'Add ability to view ticket description', assigneeId: null, columnId: 3, description: '' },
+    { id: counter++, title: 'Add ability to view ticket description', assigneeId: null, columnId: 5, description: 'Add editable ticket description' },
     { id: counter++, title: 'Add board saving/loading', assigneeId: null, columnId: 1, description: '' },
     { id: counter++, title: 'Add tickets', assigneeId: null, columnId: 1, description: '' },
     { id: counter++, title: 'Fix everything broken during implementation', assigneeId: null, columnId: 1, description: '' },
@@ -25,7 +25,11 @@ export const useTicketsStore = defineStore('tickets', () => {
   function changeAssignee(ticketId: number, assigneeId: number) {
     const ticket = tickets.find(x => x.id === ticketId)!;
     ticket.assigneeId = assigneeId;
-    console.log(ticketId, assigneeId);
+  }
+
+  function changeDescription(ticketId: number, description: string) {
+    const ticket = tickets.find(x => x.id === ticketId)!;
+    ticket.description = description;
   }
 
   return {
@@ -34,7 +38,8 @@ export const useTicketsStore = defineStore('tickets', () => {
     getTickets,
     getTicket,
     changeColumn,
-    changeAssignee
+    changeAssignee,
+    changeDescription
   }
 })
 

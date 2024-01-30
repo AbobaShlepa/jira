@@ -1,15 +1,19 @@
 <script setup lang="ts">
+  import { useTicketsStore } from '@/stores/tickets';
   const props = defineProps<{
+    ticketId: number,
     description: string
   }>();
 
   let newDesciption = props.description;
+
+  const { changeDescription } = useTicketsStore();
 </script>
 
 <template>
   <div>
     <textarea v-model="newDesciption" class="editor" />
-    <button>Save</button>
+    <button @click="changeDescription(ticketId, newDesciption)">Save</button>
   </div>
 </template>
 

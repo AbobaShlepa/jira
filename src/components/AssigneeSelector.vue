@@ -37,8 +37,6 @@
 </template>
 
 <style scoped>
-.list {}
-
 .hidden {
   visibility: hidden;
 }
