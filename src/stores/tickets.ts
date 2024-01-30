@@ -42,6 +42,12 @@ export const useTicketsStore = defineStore(key, () => {
     saveState();
   }
 
+  function changeTitle(ticketId: number, title: string) {
+    const ticket = tickets.find(x => x.id === ticketId)!;
+    ticket.title = title;
+    saveState();
+  }
+
   function createEmptyTicket(): Ticket {
    return tickets.find(x => x.id === -1)!;
   }
@@ -58,6 +64,7 @@ export const useTicketsStore = defineStore(key, () => {
     changeColumn,
     changeAssignee,
     changeDescription,
+    changeTitle,
     createEmptyTicket,
   }
 })

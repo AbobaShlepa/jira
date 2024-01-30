@@ -5,6 +5,7 @@
   import { computed } from 'vue';
   import AssigneeSelector from './AssigneeSelector.vue';
   import DescriptionEditor from './DescriptionEditor.vue';
+  import TitleEditor from './TitleEditor.vue';
 
   const { viewTicket } = storeToRefs(usePermissionStore());
   const { getTicket } = useTicketsStore();
@@ -18,9 +19,7 @@
       <div class="number">
         # {{ ticket.id }}
       </div>
-      <div class="title">
-        <input v-model="ticket.title">
-      </div>
+      <TitleEditor :ticket-id="ticket.id" />
       <AssigneeSelector :ticket-id="ticket.id" :assignee-id="ticket.assigneeId" />
       <DescriptionEditor :ticket-id="ticket.id" :description="ticket.description" />
     </div>
@@ -36,19 +35,5 @@
 
 .hidden {
   visibility: hidden;
-}
-
-.title {
-  margin: 10px 5px 10px 5px;
-}
-
-.title:hover {
-  border: 1px solid black;
-}
-
-input {
-  width: -webkit-fill-available;
-  border-width: 0;
-  line-height: 150%;
 }
 </style>
