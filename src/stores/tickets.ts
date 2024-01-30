@@ -48,8 +48,24 @@ export const useTicketsStore = defineStore(key, () => {
     saveState();
   }
 
-  function createEmptyTicket(): Ticket {
+  function getEmptyTicket(): Ticket {
    return tickets.find(x => x.id === -1)!;
+  }
+
+  function addNewTicket(ticket: Ticket) {
+    tickets.push({
+      id: counter++,
+      assigneeId: ticket.assigneeId,
+      title: ticket.title,
+      description: ticket.description,
+      columnId: 1,
+    });
+    const emptyTicket = getEmptyTicket();
+    emptyTicket.assigneeId = null;
+    emptyTicket.columnId = 1;
+    emptyTicket.title = '';
+    emptyTicket.description = ''
+    saveState();
   }
 
   function saveState() {
@@ -65,7 +81,8 @@ export const useTicketsStore = defineStore(key, () => {
     changeAssignee,
     changeDescription,
     changeTitle,
-    createEmptyTicket,
+    getEmptyTicket,
+    addNewTicket,
   }
 })
 
