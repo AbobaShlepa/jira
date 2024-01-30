@@ -12,6 +12,7 @@ const defaultTickets: Ticket[] = [
   { id: counter++, title: 'Add tickets', assigneeId: null, columnId: 1, description: '' },
   { id: counter++, title: 'Fix everything broken during implementation', assigneeId: null, columnId: 1, description: '' },
   { id: counter++, title: 'Add sprints', assigneeId: null, columnId: 1, description: '' },
+  { id: counter++, title: 'Add navigation', assigneeId: null, columnId: 1, description: '' },
 ];
 const key = 'tickets';
 
