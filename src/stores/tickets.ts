@@ -4,6 +4,7 @@ import { getItem, setItem } from './storageExtensions';
 
 let counter = 1;
 const defaultTickets: Ticket[] = [
+  { id: -1, title: '', assigneeId: null, columnId: 0, description: '' },
   { id: counter++, title: 'Fix drag-n-drop drop range', assigneeId: 1, columnId: 5, description: '' },
   { id: counter++, title: 'Add avatars for cards to visualise who is assigned', assigneeId: 1, columnId: 5, description: '' },
   { id: counter++, title: 'Add ability to toggle column editing', assigneeId: 1, columnId: 5, description: '' },
@@ -41,6 +42,10 @@ export const useTicketsStore = defineStore(key, () => {
     saveState();
   }
 
+  function createEmptyTicket(): Ticket {
+   return tickets.find(x => x.id === -1)!;
+  }
+
   function saveState() {
     setItem(key, tickets);
   }
@@ -52,7 +57,8 @@ export const useTicketsStore = defineStore(key, () => {
     getTicket,
     changeColumn,
     changeAssignee,
-    changeDescription
+    changeDescription,
+    createEmptyTicket,
   }
 })
 

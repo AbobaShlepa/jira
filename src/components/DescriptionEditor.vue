@@ -20,6 +20,11 @@
 <style scoped>
 .editor {
   display: block;
-  width: calc(100% - 6px)
+  width: calc(100% - 6px);
+  max-width: 500px;
+  min-width: 250px;
+  max-height: 500px;
+  min-height: 50px;
+  ;
 }
 </style>

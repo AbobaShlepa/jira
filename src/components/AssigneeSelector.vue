@@ -28,7 +28,7 @@
         <User :user="currentUser" :key="currentUser.id" />
       </summary>
       <div class="list">
-        <div v-for="user in  userList " :key="user.id">
+        <div v-for="user in userList" :key="user.id">
           <User :user="user" v-on:click="() => changeAssignee(props.ticketId, user.id)" />
         </div>
       </div>
