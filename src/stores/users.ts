@@ -10,11 +10,15 @@ export const useUserStore = defineStore('users', () => {
   ])
 
   const getUser = computed(() => (id: number) => users.filter(x => x.id === id)[0]);
+  const defaultUser: User = {
+    id: 0, name: 'Unassigned', avatar: '/src/assets/unassigned.png'
+  };
 
   return {
     counter,
     users,
-    getUser
+    getUser,
+    defaultUser
   }
 })
 

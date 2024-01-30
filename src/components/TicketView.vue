@@ -21,7 +21,7 @@
       <div class="title">
         <input v-model="ticket.title">
       </div>
-      <AssigneeSelector :ticket-id="ticket.id" />
+      <AssigneeSelector :ticket-id="ticket.id" :assignee-id="ticket.assigneeId" />
       <DescriptionEditor :description="ticket.description" />
     </div>
   </div>

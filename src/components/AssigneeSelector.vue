@@ -6,19 +6,19 @@
   import { useTicketsStore } from '@/stores/tickets';
 
   const props = defineProps<{
-    ticketId: number
+    ticketId: number,
+    assigneeId: number | null,
   }>();
 
-  const ticketStore = useTicketsStore();
-  const { getTicket, changeAssignee } = ticketStore;
-  const ticket = getTicket(props.ticketId);
-  const assigneeId = computed(() => ticket?.assigneeId ?? 0);
-
   const store = useUserStore();
-  const { getUser } = store;
+  const { getUser, defaultUser } = store;
   const { users } = storeToRefs(store);
-  const currentUser = computed(() => getUser(assigneeId.value));
-  const userList = computed(() => users.value.filter(x => x.id !== assigneeId.value));
+
+  const ticketStore = useTicketsStore();
+  const { changeAssignee } = ticketStore;
+
+  const currentUser = computed(() => props.assigneeId ? getUser(props.assigneeId) : defaultUser);
+  const userList = computed(() => users.value.filter(x => x.id !== props.assigneeId));
 </script>
 
 <template>
