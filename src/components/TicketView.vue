@@ -4,6 +4,7 @@
   import { storeToRefs } from 'pinia';
   import { computed } from 'vue';
   import AssigneeSelector from './AssigneeSelector.vue';
+  import DescriptionEditor from './DescriptionEditor.vue';
 
   const { viewTicket } = storeToRefs(usePermissionStore());
   const { getTicket } = useTicketsStore();
@@ -21,6 +22,7 @@
         <input v-model="ticket.title">
       </div>
       <AssigneeSelector :ticket-id="ticket.id" />
+      <DescriptionEditor :description="ticket.description" />
     </div>
   </div>
 </template>
