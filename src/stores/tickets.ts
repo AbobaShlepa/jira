@@ -11,6 +11,7 @@ export const useTicketsStore = defineStore('tickets', () => {
     { id: counter++, title: 'Add board saving/loading', assigneeId: null, columnId: 1, description: '' },
     { id: counter++, title: 'Add tickets', assigneeId: null, columnId: 1, description: '' },
     { id: counter++, title: 'Fix everything broken during implementation', assigneeId: null, columnId: 1, description: '' },
+    { id: counter++, title: 'Add sprints', assigneeId: null, columnId: 1, description: '' },
   ])
 
   const getTickets = computed(() => (columnId: number) => tickets.filter(x => x.columnId === columnId));
