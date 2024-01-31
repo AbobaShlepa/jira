@@ -3,19 +3,15 @@
   import { storeToRefs } from 'pinia';
   import { computed } from 'vue';
   import User from './User.vue';
-  import { useTicketsStore } from '@/stores/tickets';
 
   const props = defineProps<{
-    ticketId: number,
     assigneeId: number | null,
+    onAssigneeChanged: (userId: number) => void,
   }>();
 
   const store = useUserStore();
   const { getUser, defaultUser } = store;
   const { users } = storeToRefs(store);
-
-  const ticketStore = useTicketsStore();
-  const { changeAssignee } = ticketStore;
 
   const currentUser = computed(() => props.assigneeId ? getUser(props.assigneeId) : defaultUser);
   const userList = computed(() => users.value.filter(x => x.id !== props.assigneeId));
@@ -29,7 +25,7 @@
       </summary>
       <div class="list">
         <div v-for="user in userList" :key="user.id">
-          <User :user="user" v-on:click="() => changeAssignee(props.ticketId, user.id)" />
+          <User :user="user" @click="onAssigneeChanged(user.id)" />
         </div>
       </div>
     </details>

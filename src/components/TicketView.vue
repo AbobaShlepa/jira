@@ -6,10 +6,15 @@
   import AssigneeSelector from './AssigneeSelector.vue';
   import DescriptionEditor from './DescriptionEditor.vue';
   import TitleEditor from './TitleEditor.vue';
+  import { debounce } from '@/helpers/functionHelper';
 
   const { viewTicket } = storeToRefs(usePermissionStore());
-  const { getTicket } = useTicketsStore();
+  const { getTicket, changeTitle, changeDescription, changeAssignee } = useTicketsStore();
   const ticket = computed(() => viewTicket.value.ticketId ? getTicket(viewTicket.value.ticketId) : null);
+
+  function changeTitleWithDelay(newTitle: string) {
+    debounce(() => changeTitle(ticket.value?.id!, newTitle))();
+  }
 
 </script>
 
@@ -19,9 +24,11 @@
       <div class="number">
         # {{ ticket.id }}
       </div>
-      <TitleEditor :ticket-id="ticket.id" />
-      <AssigneeSelector :ticket-id="ticket.id" :assignee-id="ticket.assigneeId" />
-      <DescriptionEditor :ticket-id="ticket.id" :description="ticket.description" />
+      <TitleEditor :title="ticket.title" :on-title-changed="changeTitleWithDelay" />
+      <AssigneeSelector :assignee-id="ticket.assigneeId"
+        :on-assignee-changed="(userId) => changeAssignee(ticket?.id!, userId)" />
+      <DescriptionEditor :description="ticket.description"
+        :on-description-change="(newDesciption) => changeDescription(ticket?.id!, newDesciption)" />
     </div>
   </div>
 </template>

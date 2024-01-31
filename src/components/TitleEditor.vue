@@ -1,23 +1,17 @@
 <script setup lang="ts">
-  import { useTicketsStore } from '@/stores/tickets';
-  import { computed, ref, watch } from 'vue';
-  import { debounce } from '../helpers/functionHelper'
+  import { ref } from 'vue';
 
   const props = defineProps<{
-    ticketId: number
+    title: string,
+    onTitleChanged: (newTitle: string) => void,
   }>();
-  const { getTicket, changeTitle } = useTicketsStore();
-  const ticket = computed(() => getTicket(props.ticketId));
-  const title = ref(ticket.value?.title ?? '');
 
-  watch(title, (newTitle, _) => {
-    debounce(() => changeTitle(props.ticketId, newTitle))();
-  });
+  const title = ref(props.title);
 </script>
 
 <template>
-  <div class="title" v-if="ticket">
-    <input v-model="title">
+  <div class="title">
+    <input v-model="title" @change="onTitleChanged(($event.target as HTMLInputElement).value)">
   </div>
 </template>
 
