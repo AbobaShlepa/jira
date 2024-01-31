@@ -10,7 +10,7 @@ const defaultTickets: Ticket[] = [
   { id: counter++, title: 'Add ability to toggle column editing', assigneeId: 1, columnId: 5, description: '' },
   { id: counter++, title: 'Add ability to view ticket description', assigneeId: null, columnId: 5, description: 'Add editable ticket description' },
   { id: counter++, title: 'Add board saving/loading', assigneeId: null, columnId: 5, description: '' },
-  { id: counter++, title: 'Add tickets', assigneeId: null, columnId: 1, description: '' },
+  { id: counter++, title: 'Add tickets', assigneeId: null, columnId: 3, description: '' },
   { id: counter++, title: 'Fix everything broken during implementation', assigneeId: null, columnId: 1, description: '' },
   { id: counter++, title: 'Add sprints', assigneeId: null, columnId: 1, description: '' },
   { id: counter++, title: 'Add navigation', assigneeId: null, columnId: 1, description: '' },
@@ -62,7 +62,7 @@ export const useTicketsStore = defineStore(key, () => {
     });
     const emptyTicket = getEmptyTicket();
     emptyTicket.assigneeId = null;
-    emptyTicket.columnId = 1;
+    emptyTicket.columnId = 0;
     emptyTicket.title = '';
     emptyTicket.description = ''
     saveState();
