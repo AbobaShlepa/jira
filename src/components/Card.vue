@@ -35,7 +35,7 @@
   </div>
 </template>
 
-<style>
+<style scoped>
 .container {
   display: grid;
   border: 1px solid black;

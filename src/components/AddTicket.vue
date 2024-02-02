@@ -12,6 +12,7 @@
     title: '',
     columnId: 1,
     id: -1,
+    sprintId: 1
   };
 
   const router = useRouter();

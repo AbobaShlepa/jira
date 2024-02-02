@@ -4,15 +4,15 @@ import { getItem, setItem } from './storageExtensions';
 
 let counter = 1;
 const defaultTickets: Ticket[] = [
-  { id: counter++, title: 'Fix drag-n-drop drop range', assigneeId: 1, columnId: 5, description: '' },
-  { id: counter++, title: 'Add avatars for cards to visualise who is assigned', assigneeId: 1, columnId: 5, description: '' },
-  { id: counter++, title: 'Add ability to toggle column editing', assigneeId: 1, columnId: 5, description: '' },
-  { id: counter++, title: 'Add ability to view ticket description', assigneeId: null, columnId: 5, description: 'Add editable ticket description' },
-  { id: counter++, title: 'Add board saving/loading', assigneeId: null, columnId: 5, description: '' },
-  { id: counter++, title: 'Add tickets', assigneeId: null, columnId: 3, description: '' },
-  { id: counter++, title: 'Fix everything broken during implementation', assigneeId: null, columnId: 1, description: '' },
-  { id: counter++, title: 'Add sprints', assigneeId: null, columnId: 1, description: '' },
-  { id: counter++, title: 'Add navigation', assigneeId: null, columnId: 1, description: '' },
+  { id: counter++, title: 'Fix drag-n-drop drop range', assigneeId: 1, columnId: 5, description: '', sprintId: 1 },
+  { id: counter++, title: 'Add avatars for cards to visualise who is assigned', assigneeId: 1, columnId: 5, description: '', sprintId: 1 },
+  { id: counter++, title: 'Add ability to toggle column editing', assigneeId: 1, columnId: 5, description: '', sprintId: 1 },
+  { id: counter++, title: 'Add ability to view ticket description', assigneeId: null, columnId: 5, description: 'Add editable ticket description', sprintId: 1 },
+  { id: counter++, title: 'Add board saving/loading', assigneeId: null, columnId: 5, description: '', sprintId: 1 },
+  { id: counter++, title: 'Add tickets', assigneeId: null, columnId: 3, description: '', sprintId: 1 },
+  { id: counter++, title: 'Fix everything broken during implementation', assigneeId: null, columnId: 1, description: '', sprintId: 1 },
+  { id: counter++, title: 'Add sprints', assigneeId: null, columnId: 1, description: '', sprintId: 1 },
+  { id: counter++, title: 'Add navigation', assigneeId: null, columnId: 1, description: '', sprintId: 1 },
 ];
 const key = 'tickets';
 
@@ -54,6 +54,7 @@ export const useTicketsStore = defineStore(key, () => {
       title: ticket.title,
       description: ticket.description,
       columnId: 1,
+      sprintId: ticket.sprintId,
     });
     saveState();
   }
@@ -81,4 +82,5 @@ export type Ticket = {
   assigneeId: number | null;
   columnId: number;
   description: string;
+  sprintId: number
 }

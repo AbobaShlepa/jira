@@ -4,7 +4,7 @@
 <template>
   <nav class="navigation">
     <button type="button">
-      <router-link to="/">Board</router-link>
+      <router-link to="/board/1">Board</router-link>
     </button>
     <button type="button">
       <router-link to="/new">Add new ticket</router-link>

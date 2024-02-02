@@ -10,7 +10,7 @@
 
   const { addColumn } = storeToRefs(usePermissionStore());
 
-  async function swap(event: any) {
+  function swap(event: any) {
     const oldIndex = event.moved.oldIndex;
     const newIndex = event.moved.newIndex
     swapColumns(oldIndex, newIndex);
