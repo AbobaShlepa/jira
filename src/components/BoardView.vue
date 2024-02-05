@@ -10,8 +10,8 @@
   <div class="flex">
     <Board />
     <TicketView />
-    <SideMenu />
   </div>
+  <SideMenu class="side-menu" />
 </template>
 
 <style scoped>

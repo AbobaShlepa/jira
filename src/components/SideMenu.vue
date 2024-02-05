@@ -1,10 +1,13 @@
 <script setup lang="ts">
   import { usePermissionStore } from '@/stores/permissions';
   import { storeToRefs } from 'pinia';
+  import { useRouter } from 'vue-router';
 
   const store = usePermissionStore();
-  const { showMenu, removeColumns, editColumns, addColumn, addTicket } = storeToRefs(store);
+  const { showMenu, removeColumns, editColumns, addColumn } = storeToRefs(store);
   const { togglePermission } = store;
+
+  const router = useRouter()
 
 </script>
 
@@ -16,6 +19,11 @@
     </button>
 
     <div v-bind:style="{ display: showMenu.enabled ? 'block' : 'none' }">
+
+      <button @click="() => router.push('/')">
+        Board
+      </button>
+
       <button @click="() => togglePermission(addColumn)">
         Add column
       </button>
@@ -28,7 +36,7 @@
         Edit columns
       </button>
 
-      <button @click="() => togglePermission(addTicket)">
+      <button @click="() => router.push('/new')">
         Add ticket
       </button>
     </div>
@@ -44,7 +52,6 @@
   display: flex;
   flex-flow: column wrap;
   width: 70px;
-  height: 250px;
 }
 
 button {
