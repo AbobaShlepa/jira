@@ -20,7 +20,7 @@ export const useTicketsStore = defineStore(key, () => {
   let values = getItem<Ticket[]>(key) ?? defaultTickets;
 
   const tickets = reactive<Ticket[]>(values);
-  const getTickets = computed(() => (columnId: number) => tickets.filter(x => x.columnId === columnId));
+  const getTickets = computed(() => (columnId: number, sprintId: number) => tickets.filter(x => x.columnId === columnId && x.sprintId === sprintId));
   const getTicket = computed(() => (ticketId: number) => tickets.find(x => x.id === ticketId));
 
   function changeColumn(ticketId: number, columnId: number) {
