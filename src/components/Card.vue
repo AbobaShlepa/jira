@@ -55,16 +55,7 @@
 .grid-title {
   grid-column-start: 1;
   grid-column-end: 4;
-}
-
-.card {
-  text-align: center;
-  height: 150px;
-  background-color: aliceblue;
-  box-shadow: 0 0 1px 0;
-  margin: 5px;
-  cursor: -webkit-grab;
-  width: 190px;
+  color: #888888;
 }
 
 .ticket-number {
@@ -74,9 +65,9 @@
 .card {
   text-align: center;
   height: 100px;
-  background-color: aliceblue;
+  background-color: #3A3A3A;
   box-shadow: 0 0 1px 0;
-  margin: 4px;
+  margin: 5px;
   cursor: -webkit-grab;
 }
 
