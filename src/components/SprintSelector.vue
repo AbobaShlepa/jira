@@ -5,7 +5,7 @@
   const { sprints } = useSprintStore();
 
   const router = useRouter();
-  const activeSprint = ref(1);
+  const activeSprint = ref(+router.currentRoute.value.params.id);
 
   function handleClick(sprintId: number) {
     router.push({ name: 'board', params: { id: sprintId } })
