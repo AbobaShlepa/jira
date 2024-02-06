@@ -20,7 +20,7 @@
   width: calc(100% - 6px);
   max-width: 500px;
   min-width: 250px;
-  max-height: 500px;
+  max-height: 175px;
   min-height: 50px;
   ;
 }

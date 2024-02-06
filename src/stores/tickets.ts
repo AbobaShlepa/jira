@@ -7,12 +7,19 @@ const defaultTickets: Ticket[] = [
   { id: counter++, title: 'Fix drag-n-drop drop range', assigneeId: 1, columnId: 5, description: '', sprintId: 1 },
   { id: counter++, title: 'Add avatars for cards to visualise who is assigned', assigneeId: 1, columnId: 5, description: '', sprintId: 1 },
   { id: counter++, title: 'Add ability to toggle column editing', assigneeId: 1, columnId: 5, description: '', sprintId: 1 },
-  { id: counter++, title: 'Add ability to view ticket description', assigneeId: null, columnId: 5, description: 'Add editable ticket description', sprintId: 1 },
-  { id: counter++, title: 'Add board saving/loading', assigneeId: null, columnId: 5, description: '', sprintId: 1 },
+  { id: counter++, title: 'Add ability to view ticket description', assigneeId: null, columnId: 5, description: 'Add editable ticket description', sprintId: 2 },
   { id: counter++, title: 'Add tickets', assigneeId: null, columnId: 3, description: '', sprintId: 1 },
   { id: counter++, title: 'Fix everything broken during implementation', assigneeId: null, columnId: 1, description: '', sprintId: 1 },
-  { id: counter++, title: 'Add sprints', assigneeId: null, columnId: 1, description: '', sprintId: 1 },
-  { id: counter++, title: 'Add navigation', assigneeId: null, columnId: 1, description: '', sprintId: 1 },
+
+  { id: counter++, title: 'Add sprints', assigneeId: 2, columnId: 5, description: '', sprintId: 2 },
+  { id: counter++, title: 'Add board saving/loading', assigneeId: null, columnId: 5, description: '', sprintId: 2 },
+  { id: counter++, title: 'Add navigation', assigneeId: 2, columnId: 5, description: '', sprintId: 2 },
+  { id: counter++, title: 'Add dark theme', assigneeId: 2, columnId: 3, description: 'Add dark theme, icons etc.', sprintId: 2 },
+
+  { id: counter++, title: 'Add sprint selector for add and edit ticket', assigneeId: 2, columnId: 3, description: '', sprintId: 2 },
+  { id: counter++, title: 'Migrate add ticket to modal', assigneeId: 2, columnId: 5, description: '', sprintId: 2 },
+  { id: counter++, title: 'Migrate edit ticket to modal', assigneeId: 2, columnId: 1, description: '', sprintId: 2 },
+  { id: counter++, title: 'Add ticket types', assigneeId: 2, columnId: 1, description: '', sprintId: 3 },
 ];
 const key = 'tickets';
 

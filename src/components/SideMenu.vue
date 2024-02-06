@@ -4,7 +4,7 @@
   import { useRouter } from 'vue-router';
 
   const store = usePermissionStore();
-  const { showMenu, removeColumns, editColumns, addColumn } = storeToRefs(store);
+  const { showMenu, removeColumns, editColumns, addColumn, addTicket } = storeToRefs(store);
   const { togglePermission } = store;
 
   const router = useRouter();
@@ -14,7 +14,7 @@
     { onClick: () => togglePermission(addColumn.value), path: '/src/assets/add-column.svg', tooltipText: 'Add column' },
     { onClick: () => togglePermission(removeColumns.value), path: '/src/assets/remove-column.svg', tooltipText: 'Remove columns' },
     { onClick: () => togglePermission(editColumns.value), path: '/src/assets/edit-column.svg', tooltipText: 'Edit columns' },
-    { onClick: () => router.push('/new'), path: '/src/assets/add-ticket.svg', tooltipText: 'Add ticket' },
+    { onClick: () => togglePermission(addTicket.value), path: '/src/assets/add-ticket.svg', tooltipText: 'Add ticket' },
   ];
 
 </script>

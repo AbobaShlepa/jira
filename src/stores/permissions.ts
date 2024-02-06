@@ -3,7 +3,6 @@ import { ref } from "vue";
 import type { Ticket } from "./tickets";
 
 export const usePermissionStore = defineStore('permissions', () => {
-
   const showMenu = ref<Permission>({ permissionType: PermissionType.ShowMenu, enabled: false });
   const editColumns = ref<Permission>({ permissionType: PermissionType.EditColumns, enabled: false });
   const removeColumns = ref<Permission>({ permissionType: PermissionType.RemoveColumns, enabled: false });

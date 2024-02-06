@@ -38,6 +38,7 @@
   width: 100%;
   border: 1px solid black;
   height: 100%;
+  background-color: var(--background2);
 }
 
 .hidden {

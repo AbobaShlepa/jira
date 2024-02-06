@@ -1,5 +1,4 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import AddTicket from '@/components/AddTicket.vue'
 import BoardView from '@/components/BoardView.vue'
 
 const router = createRouter({
@@ -15,10 +14,6 @@ const router = createRouter({
       name: 'board',
       component: BoardView
     },
-    {
-      path: '/new',
-      component: AddTicket
-    }
   ]
 })
 

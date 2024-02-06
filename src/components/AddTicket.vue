@@ -4,31 +4,35 @@
   import AssigneeSelector from './AssigneeSelector.vue';
   import DescriptionEditor from './DescriptionEditor.vue';
   import TitleEditor from './TitleEditor.vue';
+  import { ref } from 'vue';
 
   const { addNewTicket } = useTicketsStore();
-  const ticket: Ticket = {
+  const ticket = ref<Ticket>({
     assigneeId: null,
     description: '',
     title: '',
     columnId: 1,
     id: -1,
     sprintId: 1
-  };
+  });
 
   const router = useRouter();
 
   function handleAdd() {
-    addNewTicket(ticket);
+    addNewTicket(ticket.value);
     router.push('/');
   }
 
 </script>
 
 <template>
-  <div>
+  <div class="container">
+    <p>Enter ticket title:</p>
     <TitleEditor :title="ticket.title" :on-title-changed="(newTitle: string) => ticket.title = newTitle" />
+    <p>Select assignee:</p>
     <AssigneeSelector :assignee-id="ticket.assigneeId"
       :on-assignee-changed="(userId: number) => ticket.assigneeId = userId" />
+    <p>Enter ticket desciption</p>
     <DescriptionEditor :description="ticket.description"
       :on-description-change="(description: string) => ticket.description = description" />
     <button type="button" @click="handleAdd">
@@ -36,3 +40,10 @@
     </button>
   </div>
 </template>
+
+<style scoped>
+.container {
+  background-color: var(--background2);
+  width: 500px;
+}
+</style>
