@@ -2,4 +2,12 @@ body {
   margin: 0;
   background-color: #1A1A1A;
   color: #FFFFFF;
+
+  --text-color: #FFFFFF;
+  --text-color2: #212121;
+
+  --color-active: #9DCCC0;
+
+  --background2: #3A3A3A;
+  --background3: #AAAAAA;
 }

@@ -5,7 +5,7 @@
   const { sprints } = useSprintStore();
 
   const router = useRouter();
-  const activeSprint = ref(0);
+  const activeSprint = ref(1);
 
   function handleClick(sprintId: number) {
     router.push({ name: 'board', params: { id: sprintId } })
@@ -43,12 +43,12 @@
 
 .item:hover:not(.clicked) {
   box-shadow: inset 0 -2px 0 0 #FFFFFF;
-  color: #FFFFFF;
+  color: var(--text-color);
 }
 
 .clicked {
-  box-shadow: inset 0 -2px 0 0 #9DCCC0;
-  color: #FFFFFF !important;
+  box-shadow: inset 0 -2px 0 0 var(--color-active);
+  color: var(--text-color) !important;
 }
 
 a {

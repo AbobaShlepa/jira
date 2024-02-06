@@ -65,7 +65,7 @@
 .card {
   text-align: center;
   height: 100px;
-  background-color: #3A3A3A;
+  background-color: var(--background2);
   box-shadow: 0 0 1px 0;
   margin: 5px;
   cursor: -webkit-grab;
