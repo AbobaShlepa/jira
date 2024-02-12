@@ -8,6 +8,7 @@
 </script>
 
 <template>
+  <p>Enter ticket desciption</p>
   <div>
     <textarea v-model="newDesciption" class="editor" />
     <button @click="onDescriptionChange(newDesciption)">Save</button>

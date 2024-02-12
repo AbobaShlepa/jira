@@ -27,12 +27,9 @@
 
 <template>
   <div class="container">
-    <p>Enter ticket title:</p>
     <TitleEditor :title="ticket.title" :on-title-changed="(newTitle: string) => ticket.title = newTitle" />
-    <p>Select assignee:</p>
     <AssigneeSelector :assignee-id="ticket.assigneeId"
       :on-assignee-changed="(userId: number) => ticket.assigneeId = userId" />
-    <p>Enter ticket desciption</p>
     <DescriptionEditor :description="ticket.description"
       :on-description-change="(description: string) => ticket.description = description" />
     <button type="button" @click="handleAdd">

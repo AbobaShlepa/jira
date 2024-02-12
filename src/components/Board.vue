@@ -38,5 +38,6 @@
 <style scoped>
 .board {
   display: flex;
+  justify-content: center;
 }
 </style>

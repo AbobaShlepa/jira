@@ -19,6 +19,7 @@
 
 <template>
   <div>
+    <p>Select assignee:</p>
     <details>
       <summary>
         <User :user="currentUser" :key="currentUser.id" />

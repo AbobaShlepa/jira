@@ -10,6 +10,7 @@
 </script>
 
 <template>
+  <p>Enter ticket title:</p>
   <div class="title">
     <input v-model="title" @change="onTitleChanged(($event.target as HTMLInputElement).value)">
   </div>

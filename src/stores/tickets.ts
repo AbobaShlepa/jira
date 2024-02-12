@@ -18,7 +18,8 @@ const defaultTickets: Ticket[] = [
 
   { id: counter++, title: 'Add sprint selector for add and edit ticket', assigneeId: 2, columnId: 3, description: '', sprintId: 2 },
   { id: counter++, title: 'Migrate add ticket to modal', assigneeId: 2, columnId: 5, description: '', sprintId: 2 },
-  { id: counter++, title: 'Migrate edit ticket to modal', assigneeId: 2, columnId: 1, description: '', sprintId: 2 },
+  { id: counter++, title: 'Migrate edit ticket to modal', assigneeId: 2, columnId: 5, description: '', sprintId: 2 },
+
   { id: counter++, title: 'Add ticket types', assigneeId: 2, columnId: 1, description: '', sprintId: 3 },
 ];
 const key = 'tickets';
