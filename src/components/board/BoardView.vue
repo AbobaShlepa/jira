@@ -1,7 +1,7 @@
 <script setup lang="ts">
-  import AddTicketModal from './AddTicketModal.vue';
   import Board from './Board.vue';
-  import EditTicketModal from './EditTicketModal.vue';
+  import AddTicketModal from '@/components/modals/AddTicketModal.vue';
+  import EditTicketModal from '@/components/modals/EditTicketModal.vue';
   import SearchBar from '@/components/search/SearchBar.vue'
   import SprintSelector from './SprintSelector.vue';
 </script>

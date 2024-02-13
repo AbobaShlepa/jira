@@ -1,6 +1,6 @@
 <script setup lang="ts">
   import { useColumnsStore } from '@/stores/columns';
-  import TicketContainer from './TicketContainer.vue';
+  import TicketContainer from '@/components/ticket/TicketContainer.vue';
   import { type Ticket } from '@/stores/tickets';
   import { storeToRefs } from 'pinia';
   import { usePermissionStore } from '@/stores/permissions';

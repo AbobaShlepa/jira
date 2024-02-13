@@ -1,20 +1,20 @@
 <script setup lang="ts">
   import { usePermissionStore } from '@/stores/permissions';
   import { storeToRefs } from 'pinia';
-  import Modal from '@/components/Modal.vue'
-  import AddTicket from '@/components/AddTicket.vue'
+  import Modal from './Modal.vue'
+  import TicketView from '@/components/ticket/TicketView.vue'
 
   const store = usePermissionStore();
-  const { addTicket } = storeToRefs(store);
+  const { viewTicket } = storeToRefs(store);
 </script>
 
 <template>
-  <Modal :permission="addTicket">
+  <Modal :permission="viewTicket">
     <template #header>
-      <h3>Add new ticket</h3>
+      <h3>Edit ticket</h3>
     </template>
     <template #main>
-      <AddTicket />
+      <TicketView />
     </template>
   </Modal>
 </template>

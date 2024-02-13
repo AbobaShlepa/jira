@@ -1,7 +1,7 @@
 <script setup lang="ts">
   import { useTicketsStore, type Ticket } from "@/stores/tickets";
   import draggable from "vuedraggable";
-  import Card from '@/components/Card.vue'
+  import Card from './Card.vue'
 
   defineProps<{
     tickets: Ticket[];
