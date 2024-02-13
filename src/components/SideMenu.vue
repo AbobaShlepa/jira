@@ -2,19 +2,19 @@
   import { usePermissionStore } from '@/stores/permissions';
   import { storeToRefs } from 'pinia';
   import { useRouter } from 'vue-router';
+  import resolvePath from '@/helpers/pathResolver';
 
   const store = usePermissionStore();
   const { showMenu, removeColumns, editColumns, addColumn, addTicket } = storeToRefs(store);
   const { togglePermission } = store;
 
   const router = useRouter();
-
   const items = [
-    { onClick: () => router.push('/'), path: '/board3.svg', tooltipText: 'Board' },
-    { onClick: () => togglePermission(addColumn.value), path: '/add-column.svg', tooltipText: 'Add column' },
-    { onClick: () => togglePermission(removeColumns.value), path: '/remove-column.svg', tooltipText: 'Remove columns' },
-    { onClick: () => togglePermission(editColumns.value), path: '/edit-column.svg', tooltipText: 'Edit columns' },
-    { onClick: () => togglePermission(addTicket.value), path: '/add-ticket.svg', tooltipText: 'Add ticket' },
+    { onClick: () => router.push('/'), path: 'board.svg', tooltipText: 'Board' },
+    { onClick: () => togglePermission(addColumn.value), path: 'add-column.svg', tooltipText: 'Add column' },
+    { onClick: () => togglePermission(removeColumns.value), path: 'remove-column.svg', tooltipText: 'Remove columns' },
+    { onClick: () => togglePermission(editColumns.value), path: 'edit-column.svg', tooltipText: 'Edit columns' },
+    { onClick: () => togglePermission(addTicket.value), path: 'add-ticket.svg', tooltipText: 'Add ticket' },
   ];
 
 </script>
@@ -23,7 +23,7 @@
   <div class="flex-container">
 
     <button @click="() => togglePermission(showMenu)" class="tooltip item">
-      <img :src="showMenu.enabled ? '/hide.svg' : '/show.svg'" class="icon" />
+      <img :src="showMenu.enabled ? resolvePath('hide.svg') : resolvePath('show.svg')" class="icon" />
       <span class="tooltip-text">
         {{ showMenu.enabled ? 'Hide' : 'Show' }}
       </span>
@@ -32,7 +32,7 @@
     <div v-bind:style="{ display: showMenu.enabled ? 'block' : 'none' }">
 
       <button v-for="item in items" @click="item.onClick" class="tooltip item">
-        <img :src=" item.path" class="icon" />
+        <img :src="resolvePath(item.path)" class="icon" />
         <span class="tooltip-text">
           {{ item.tooltipText }}
         </span>

@@ -9,7 +9,7 @@ export const useUserStore = defineStore('users', () => {
     { id: counter++, name: 'Sad Guy', avatar: '/sad.png' }
   ])
 
-  const getUser = computed(() => (id: number) => users.filter(x => x.id === id)[0]);
+  const getUser = computed(() => (id: number | null) => users.find(x => x.id === id) ?? defaultUser);
   const defaultUser: User = {
     id: 0, name: 'Unassigned', avatar: '/unassigned.png'
   };

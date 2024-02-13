@@ -3,6 +3,7 @@
   import type { Ticket } from '@/stores/tickets';
   import { useUserStore } from '@/stores/users';
   import { storeToRefs } from 'pinia';
+  import resolvePath from '@/helpers/pathResolver'; 
 
   const props = defineProps<{
     ticket: Ticket
@@ -24,8 +25,7 @@
       </div>
     </div>
     <div class="grid-item avatar">
-      <img v-if="ticket.assigneeId" v-bind:src="getUser(ticket.assigneeId).avatar" class="avatar" />
-      <img v-if="ticket.assigneeId === null" src='/unassigned.png' class="avatar" />
+      <img :src="resolvePath(getUser(ticket.assigneeId).avatar)" class="avatar" />
     </div>
     <div class="grid-item grid-title">
       <span>
