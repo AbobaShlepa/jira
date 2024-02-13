@@ -1,6 +1,4 @@
 <script setup lang="ts">
-  import { useTicketsStore } from '@/stores/tickets';
-  import { storeToRefs } from 'pinia';
   import { computed, ref, type Ref } from 'vue';
   import { search } from '@/helpers/search';
   import { OnClickOutside } from '@vueuse/components'
@@ -9,10 +7,8 @@
   import ClearButton from './ClearButton.vue';
 
   let searchQuery: Ref<string> = ref('');
-  const store = useTicketsStore();
-  const { tickets } = storeToRefs(store);
 
-  const searchResult = computed(() => search(tickets.value, searchQuery.value));
+  const searchResult = computed(() => search(searchQuery.value));
 
   const hasFocus = ref(false);
 
@@ -28,7 +24,7 @@
         <SearchIcon />
         <textarea class="search" v-model="searchQuery" @focusin="hasFocus = true" />
         <ClearButton :on-clear="onClear" />
-        <SearchResult :tickets="searchResult.tickets" v-if="searchResult.success && hasFocus" />
+        <SearchResult :tickets="searchResult.tickets" v-if="searchQuery.length > 0 && searchResult.success && hasFocus" />
       </div>
     </OnClickOutside>
   </div>

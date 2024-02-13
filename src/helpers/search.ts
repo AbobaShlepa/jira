@@ -1,66 +1,85 @@
-import type { Ticket } from "@/stores/tickets";
+import { useSprintStore } from "@/stores/sprints";
+import { useTicketsStore, type Ticket } from "@/stores/tickets";
+import { useUserStore } from "@/stores/users";
+import { storeToRefs } from "pinia";
 
-export interface SearchQuery {
-  title: string | null;
-}
+type keyword = 'title' | 'sprint' | 'assignee';
+
+const keywords = [
+  'title', 
+  'sprint',
+  'assignee'
+]
+
+export type SearchQuery = {
+  [key in keyword]: string | null;
+};
 
 export interface SearchResult {
   success: boolean,
-  query: SearchQuery | null,
   tickets: Ticket[] | []
 }
 
-const keyWords = [
-  'title'
-];
-
 const invalidResult: SearchResult = {
   success: false,
-  query: null,
   tickets: [],
 }
 
-const searchQuery: SearchQuery = {
-  title: null
-};
-
-const successResult: SearchResult = {
-  success: true,
-  query: searchQuery,
-  tickets: []
-};
-
-export function search(tickets: Ticket[], query: string): SearchResult {
-  const parseResult = parse(query);
-  if (!parseResult.success || parseResult.query === null) {
+export function search(query: string): SearchResult {
+  const searchQuery = parse(query);
+  if (!searchQuery) {
     return invalidResult;
   }
 
-  const result = tickets.filter(x => x.title.toLowerCase().includes(parseResult.query?.title!));
-  successResult.tickets = result;
-
-  return successResult;
+  const result = filter(searchQuery);
+  return {
+    tickets: result,
+    success: true,
+  }
 }
 
-function parse(query: string): SearchResult {
-  const splitRegex = /and|or/gi;
+function parse(query: string): SearchQuery | null {
+  const splitRegex = /and/gi;
   const searchTerms = query.split(splitRegex);
+  const searchQuery: SearchQuery = { title: null, assignee: null, sprint: null };
   
   for (const term of searchTerms) {
-    // console.log('term: ', term)
-    const splitedTerm = term.split(' ');
-    const keyWord = splitedTerm[0];
-    const equalitySign = splitedTerm[1];
-    const value = splitedTerm[2]
-    // console.log('splitedTerm: ', splitedTerm)
-    // console.log('keyword: ', keyWord)
-    if (!keyWords.includes(keyWord) || equalitySign !== '=' || !value) {
-    // console.log('no keyword');
-      return invalidResult;
+    const splitedTerm = term.trim().split(' ');
+    const keyWord = splitedTerm[0].trim();
+    const equalitySign = splitedTerm[1].trim();
+    const value = splitedTerm[2].trim();
+
+    if (!isValidKeyword(keyWord) || equalitySign !== '=' || !value) {
+      return null;
     }
 
-    searchQuery.title = value.toLowerCase();
+    searchQuery[keyWord as keyword]  = value.toLowerCase();;
   }
 
-  return successResult;
+  return searchQuery;
+}
+
+function filter(query: SearchQuery): Ticket[] {
+  const ticketStore = useTicketsStore();
+  const { tickets } = storeToRefs(ticketStore);
+
+  const sprintStore = useSprintStore();
+  const { sprints } = storeToRefs(sprintStore);
+  
+  const userStore = useUserStore();
+  const { users } = storeToRefs(userStore);
+  
+  const validSprints = query.sprint ? sprints.value.filter(x => x.name.toLowerCase().includes(query.sprint!)) : sprints.value;
+  const validTickets = query.title ? tickets.value.filter(x => x.title.toLowerCase().includes(query.title!)) : tickets.value;
+  const validUsers = query.assignee ? users.value.filter(x => x.name.toLowerCase().includes(query.assignee!)) : users.value;
+
+  const sprintIds = validSprints.map(x => x.id);
+  const ticketIds = validTickets.map(x => x.id);
+  const userIds = validUsers.map(x => x.id);
+
+  return tickets.value.filter(x => sprintIds.includes(x.sprintId) && ticketIds.includes(x.id) && userIds.includes(x.assigneeId ?? 0));
+}
+
+function isValidKeyword(keyword: string) {
+  return keywords.includes(keyword);
 }
