@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg">
+  <rect fill="transparent" stroke="#FFFFFF" stroke-width="1"
+    x="4" y="10" width="42" height="30" />
+  <line x1="20" x2="30" y1="25" y2="25" stroke="#AAAAAA" />
+  <line x1="25" x2="25" y1="20" y2="30" stroke="#AAAAAA" />
+  <circle r="7" fill="transparent" stroke="#AAAAAA" cx="25" cy="25" />
+</svg>
