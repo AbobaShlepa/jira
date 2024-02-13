@@ -45,6 +45,10 @@ function parse(query: string): SearchQuery | null {
   
   for (const term of searchTerms) {
     const splitedTerm = term.trim().split(' ');
+    if (splitedTerm.length !== 3) {
+      return null;
+    }
+
     const keyWord = splitedTerm[0].trim();
     const equalitySign = splitedTerm[1].trim();
     const value = splitedTerm[2].trim();

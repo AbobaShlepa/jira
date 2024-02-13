@@ -19,9 +19,14 @@
 
 <template>
   <ul class="results">
-    <li :class="'result'" v-for="ticket in tickets">
-      <div @click="onClick(ticket.id)">
-        {{ ticket.id }} {{ ticket.title }}
+    <li :class="'result'" v-for="ticket in tickets" @click="onClick(ticket.id)">
+      <div class="container">
+        <div>
+          # {{ ticket.id }}
+        </div>
+        <div>
+          {{ ticket.title }}
+        </div>
       </div>
     </li>
   </ul>
@@ -38,7 +43,7 @@
 
 .result {
   width: 100% - 20px;
-  height: 30px;
+  height: 60px;
   border-bottom: 1px solid #555555;
   line-height: 30px;
   padding-left: 20px;
