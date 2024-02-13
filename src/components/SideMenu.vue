@@ -10,7 +10,7 @@
 
   const router = useRouter();
   const items = [
-    { onClick: () => router.push('/'), path: 'board.svg', tooltipText: 'Board' },
+    { onClick: () => router.push('/'), path: 'board3.svg', tooltipText: 'Board' },
     { onClick: () => togglePermission(addColumn.value), path: 'add-column.svg', tooltipText: 'Add column' },
     { onClick: () => togglePermission(removeColumns.value), path: 'remove-column.svg', tooltipText: 'Remove columns' },
     { onClick: () => togglePermission(editColumns.value), path: 'edit-column.svg', tooltipText: 'Edit columns' },
