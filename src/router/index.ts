@@ -7,13 +7,15 @@ const router = createRouter({
     {
       path: '/',
       component: BoardView,
-      redirect: '/board/1'
+      redirect: '/board/1',
+      children: []
     },
     {
       path: '/board/:id',
       name: 'board',
-      component: BoardView
-    },
+      component: BoardView,
+      children: []
+    }
   ]
 })
 
