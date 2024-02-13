@@ -3,6 +3,9 @@
   import { storeToRefs } from 'pinia';
   import { computed, ref, type Ref } from 'vue';
   import { search } from '@/helpers/search';
+  import SearchResult from './SearchResult.vue';
+  import SearchIcon from './SearchIcon.vue';
+  import ClearButton from './ClearButton.vue';
 
   let searchQuery: Ref<string> = ref('');
   const store = useTicketsStore();
@@ -20,18 +23,10 @@
 <template>
   <div class="wrapper">
     <div class="search-container">
-      <span class="search-icon-container">
-        <img src="/src/assets/search.svg" class="icon search-icon" />
-      </span>
+      <SearchIcon />
       <textarea class="search" v-model="searchQuery" @focusin="hasFocus = true" @focusout="hasFocus = false" />
-      <button class="clear-icon-container" @click="onClear">
-        <img src="/src/assets/clear.svg" class="icon" />
-      </button>
-      <div class="results" v-if="searchResult.success && hasFocus">
-        <div :class="'result'" v-for="foundTicket in searchResult.tickets">
-          {{ foundTicket.id }} {{ foundTicket.title }}
-        </div>
-      </div>
+      <ClearButton :on-clear="onClear" />
+      <SearchResult :tickets="searchResult.tickets" v-if="searchResult.success && hasFocus" />
     </div>
   </div>
 </template>
@@ -65,57 +60,5 @@
   position: sticky;
   line-height: 40px;
   margin-top: 5px;
-}
-
-.results {
-  width: inherit;
-  width: 550px;
-  margin-top: 5px;
-}
-
-.result {
-  width: 100% - 20px;
-  height: 30px;
-  border-bottom: 1px solid #555555;
-  line-height: 30px;
-  padding-left: 20px;
-}
-
-.result:last-child {
-  border-bottom: none;
-}
-
-.result:hover {
-  background-color: #333333;
-}
-
-.clear-icon-container {
-  float: right;
-  width: 50px;
-  height: 50px;
-  display: inline;
-  cursor: pointer;
-}
-
-.search-icon-container {
-  float: left;
-  width: 50px;
-  height: 50px;
-}
-
-.icon {
-  position: relative;
-  top: 3px;
-  left: 10px;
-  height: 30px;
-  width: 30px;
-}
-
-.search-icon {
-  top: 10px;
-}
-
-button {
-  all: unset;
 }
 </style>
