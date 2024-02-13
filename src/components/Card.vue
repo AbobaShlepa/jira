@@ -25,7 +25,7 @@
     </div>
     <div class="grid-item avatar">
       <img v-if="ticket.assigneeId" v-bind:src="getUser(ticket.assigneeId).avatar" class="avatar" />
-      <img v-if="ticket.assigneeId === null" src='/src/assets/unassigned.png' class="avatar" />
+      <img v-if="ticket.assigneeId === null" src='/unassigned.png' class="avatar" />
     </div>
     <div class="grid-item grid-title">
       <span>

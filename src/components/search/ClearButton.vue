@@ -6,7 +6,7 @@
 
 <template>
   <button class="clear-icon-container" @click="onClear">
-    <img src="/src/assets/clear.svg" class="icon" />
+    <img src="/clear.svg" class="icon" />
   </button>
 </template>
 

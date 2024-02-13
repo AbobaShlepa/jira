@@ -3,7 +3,7 @@
 
 <template>
   <span class="search-icon-container">
-    <img src="/src/assets/search.svg" class="icon search-icon" />
+    <img src="/search.svg" class="icon search-icon" />
   </span>
 </template>
 
