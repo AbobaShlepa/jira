@@ -2,8 +2,13 @@
 </script>
 
 <template>
-  <span class="search-icon-container">
-    <img src="/search.svg" class="icon search-icon" />
+  <span class="search-icon-container tooltip">
+    <img src="/search.svg" class="icon search-icon" @mouseover=""/>
+    <div class="tooltip-text">
+     <p>Allows you to search through tickets</p>
+     <p>Available keywords: 'title', 'sprint' and 'assignee'</p>
+     <p>Example: title = fix and sprint = 1</p>
+    </div>
   </span>
 </template>
 
@@ -29,4 +34,5 @@
 button {
   all: unset;
 }
+
 </style>

@@ -11,3 +11,26 @@ body {
   --background2: #3A3A3A;
   --background3: #AAAAAA;
 }
+
+
+.tooltip .tooltip-text {
+  visibility: hidden;
+  width: 350px;
+  background-color: #111;
+  color: #fff;
+  border-radius: 6px;
+  padding: 5px 0;
+
+  /* Position the tooltip */
+  position: relative;
+  z-index: 1;
+  top: 20px;
+}
+
+.tooltip-text p {
+  margin-left: 10px;
+}
+
+.tooltip:hover .tooltip-text {
+  visibility: visible;
+}
