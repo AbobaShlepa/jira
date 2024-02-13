@@ -1,4 +1,5 @@
 <script setup lang="ts">
+  import resolvePath from '@/helpers/pathResolver';
   import type { User } from '@/stores/users';
 
   const props = defineProps<{
@@ -10,7 +11,7 @@
 
 <template>
   <div class="user-container">
-    <img class="avatar middle" v-bind:src="user.avatar">
+    <img class="avatar middle" :src="resolvePath(user.avatar)">
     <span class="middle username">{{ user.name }}</span>
   </div>
 </template>
