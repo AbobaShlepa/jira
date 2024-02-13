@@ -3,6 +3,7 @@
   import { storeToRefs } from 'pinia';
   import { computed, ref, type Ref } from 'vue';
   import { search } from '@/helpers/search';
+  import { OnClickOutside } from '@vueuse/components'
   import SearchResult from './SearchResult.vue';
   import SearchIcon from './SearchIcon.vue';
   import ClearButton from './ClearButton.vue';
@@ -22,19 +23,21 @@
 
 <template>
   <div class="wrapper">
-    <div class="search-container">
-      <SearchIcon />
-      <textarea class="search" v-model="searchQuery" @focusin="hasFocus = true" @focusout="hasFocus = false" />
-      <ClearButton :on-clear="onClear" />
-      <SearchResult :tickets="searchResult.tickets" v-if="searchResult.success && hasFocus" />
-    </div>
+    <OnClickOutside @trigger="hasFocus = false">
+      <div class="search-container">
+        <SearchIcon />
+        <textarea class="search" v-model="searchQuery" @focusin="hasFocus = true" />
+        <ClearButton :on-clear="onClear" />
+        <SearchResult :tickets="searchResult.tickets" v-if="searchResult.success && hasFocus" />
+      </div>
+    </OnClickOutside>
   </div>
 </template>
 
 <style scoped>
 .wrapper {
   display: block;
-  width: 100%;
+  width: 550px;
   height: 50px;
 }
 

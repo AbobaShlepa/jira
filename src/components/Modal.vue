@@ -1,25 +1,28 @@
 <script setup lang="ts">
   import { usePermissionStore, type Permission } from '@/stores/permissions';
+  import { OnClickOutside } from '@vueuse/components'
 
   const { togglePermission } = usePermissionStore();
 
-  const props = defineProps<{
+  defineProps<{
     permission: Permission
   }>()
 </script>
 
 <template>
-  <div class="container modal" v-if="permission.enabled">
-    <div class="header">
-      <div class="header-content">
-        <slot name="header"></slot>
-        <button class="close" @click="togglePermission(permission)">X</button>
+  <OnClickOutside @trigger="permission.enabled = false">
+    <div class="container modal" v-if="permission.enabled">
+      <div class="header">
+        <div class="header-content">
+          <slot name="header"></slot>
+          <button class="close" @click="togglePermission(permission)">X</button>
+        </div>
+      </div>
+      <div class="main">
+        <slot name="main"></slot>
       </div>
     </div>
-    <div class="main">
-      <slot name="main"></slot>
-    </div>
-  </div>
+  </OnClickOutside>
 </template>
 
 <style scoped>

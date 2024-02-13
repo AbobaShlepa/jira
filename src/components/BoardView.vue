@@ -2,7 +2,7 @@
   import AddTicketModal from './AddTicketModal.vue';
   import Board from './Board.vue';
   import EditTicketModal from './EditTicketModal.vue';
-  import SearchBar from './SearchBar.vue';
+  import SearchBar from '@/components/search/SearchBar.vue'
   import SprintSelector from './SprintSelector.vue';
 </script>
 

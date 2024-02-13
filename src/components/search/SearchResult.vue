@@ -1,16 +1,28 @@
 <script setup lang="ts">
   import type { Ticket } from '@/stores/tickets';
+  import { usePermissionStore } from '@/stores/permissions';
+  import { storeToRefs } from 'pinia';
+
+  const permissionStore = usePermissionStore();
+  const { toggleTicketPermission } = permissionStore;
+  const { viewTicket } = storeToRefs(permissionStore);
 
   defineProps<{
     tickets: Ticket[],
   }>();
+
+  function onClick(ticketId: number) {
+    toggleTicketPermission(viewTicket.value, ticketId);
+  }
 
 </script>
 
 <template>
   <ul class="results">
     <li :class="'result'" v-for="ticket in tickets">
-      {{ ticket.id }} {{ ticket.title }}
+      <div @click="onClick(ticket.id)">
+        {{ ticket.id }} {{ ticket.title }}
+      </div>
     </li>
   </ul>
 </template>
@@ -21,6 +33,7 @@
   width: 550px;
   margin-top: 5px;
   list-style: none;
+  padding-left: 0;
 }
 
 .result {
