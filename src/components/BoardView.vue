@@ -2,13 +2,14 @@
   import AddTicketModal from './AddTicketModal.vue';
   import Board from './Board.vue';
   import EditTicketModal from './EditTicketModal.vue';
+  import SearchBar from './SearchBar.vue';
   import SprintSelector from './SprintSelector.vue';
-  import TicketView from './TicketView.vue';
 </script>
 
 <template>
   <SprintSelector />
-  <Board />>
+  <SearchBar />
+  <Board />
   <AddTicketModal />
   <EditTicketModal />
 </template>
