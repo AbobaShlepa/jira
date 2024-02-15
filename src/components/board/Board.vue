@@ -1,7 +1,6 @@
 <script setup lang="ts">
   import { useColumnsStore } from '@/stores/columns';
   import Column from '@/components/column/Column.vue'
-  import AddColumn from '@/components/column/AddColumn.vue'
   import draggable from 'vuedraggable';
   import { storeToRefs } from 'pinia';
   import { usePermissionStore } from '@/stores/permissions';
