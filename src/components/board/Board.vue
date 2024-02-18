@@ -1,7 +1,6 @@
 <script setup lang="ts">
   import { useColumnsStore } from '@/stores/columns';
   import Column from '@/components/column/Column.vue'
-  import AddColumn from '@/components/column/AddColumn.vue'
   import draggable from 'vuedraggable';
   import { storeToRefs } from 'pinia';
   import { usePermissionStore } from '@/stores/permissions';
@@ -10,7 +9,7 @@
   import { useTicketsStore } from '@/stores/tickets';
 
   const { columns, swapColumns } = useColumnsStore();
-  const { addColumn, editColumns } = storeToRefs(usePermissionStore());
+  const { editColumns } = storeToRefs(usePermissionStore());
 
   const sprintId = computed(() => +router.currentRoute.value.params.id);
 
@@ -25,12 +24,12 @@
 
 <template>
   <div class="board">
-    <draggable v-model="columns" class="board" @change="swap" group="columns" item-key="id" :disabled="!editColumns.enabled">
+    <draggable v-model="columns" class="board" @change="swap" group="columns" item-key="id"
+      :disabled="!editColumns.enabled">
       <template #item="{ element }">
         <Column :column-id="element.id" :tickets="getTickets(element.id, sprintId)" />
       </template>
     </draggable>
-    <AddColumn v-if="addColumn.enabled" />
   </div>
 </template>
 

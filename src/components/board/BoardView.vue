@@ -4,6 +4,7 @@
   import EditTicketModal from '@/components/modals/EditTicketModal.vue';
   import SearchBar from '@/components/search/SearchBar.vue'
   import SprintSelector from './SprintSelector.vue';
+  import AddColumnModal from '@/components/modals/AddColumnModal.vue';
 </script>
 
 <template>
@@ -12,10 +13,5 @@
   <Board />
   <AddTicketModal />
   <EditTicketModal />
+  <AddColumnModal />
 </template>
-
-<style scoped>
-.flex {
-  display: flex;
-}
-</style>

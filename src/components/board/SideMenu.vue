@@ -79,7 +79,8 @@ button {
   text-align: center;
   border-radius: 6px;
   padding: 5px 0;
-  height: calc(var(--button-size) - 20px);
+  min-height: calc(var(--button-size) - 20px);
+  height: fit-content;
   line-height: calc(var(--button-size) - 20px);
 
   position: absolute;
