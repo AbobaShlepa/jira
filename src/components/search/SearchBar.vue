@@ -42,7 +42,7 @@
   margin: auto;
   border-radius: 20px;
   height: fit-content;
-  background-color: var(--background2);
+  background-color: var(--color3);
   position: absolute;
   left: calc((100% - 550px) / 2);
 }

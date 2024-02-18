@@ -29,5 +29,6 @@ input {
   width: -webkit-fill-available;
   border-width: 0;
   line-height: 150%;
+  height: 25px;
 }
 </style>

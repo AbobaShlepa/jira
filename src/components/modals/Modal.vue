@@ -30,11 +30,11 @@
   --width: 600px;
   --height: 550px;
 
-  background-color: var(--background2);
+  background-color: var(--modal-background);
   width: 600px;
   height: 500px;
 
-  border: 1px solid var(--background3);
+  border: 1px solid var(--color3);
 }
 
 .modal {
@@ -45,7 +45,7 @@
 
 .header {
   height: 30px;
-  border-bottom: 1px solid var(--background3);
+  border-bottom: 1px solid var(--color3);
 }
 
 .close {

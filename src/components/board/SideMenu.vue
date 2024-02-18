@@ -74,7 +74,7 @@ button {
 .tooltip .tooltip-text {
   visibility: hidden;
   width: 120px;
-  background-color: var(--background2);
+  background-color: var(--color3);
   color: #fff;
   text-align: center;
   border-radius: 6px;
@@ -94,6 +94,6 @@ button {
 }
 
 .item:hover {
-  background: var(--background2);
+  background: var(--color3);
 }
 </style>

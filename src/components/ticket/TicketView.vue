@@ -35,9 +35,9 @@
 
 <style scoped>
 .ticket-view {
-  width: 100%;
+  width: calc(100% - 20px);
   height: 100%;
-  background-color: var(--background2);
+  background-color: var(--modal-background);
 }
 
 .hidden {

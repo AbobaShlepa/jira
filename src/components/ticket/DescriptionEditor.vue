@@ -18,11 +18,8 @@
 <style scoped>
 .editor {
   display: block;
-  width: calc(100% - 6px);
-  max-width: 500px;
-  min-width: 250px;
-  max-height: 175px;
-  min-height: 50px;
-  ;
+  width: 100%;
+  height: 70px;
+  resize: none;
 }
 </style>

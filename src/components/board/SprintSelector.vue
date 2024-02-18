@@ -47,7 +47,7 @@
 }
 
 .clicked {
-  box-shadow: inset 0 -2px 0 0 var(--color-active);
+  box-shadow: inset 0 -2px 0 0 var(--color5);
   color: var(--text-color) !important;
 }
 
