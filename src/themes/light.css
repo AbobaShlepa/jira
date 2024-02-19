@@ -1,7 +1,7 @@
 *:has(body[data-theme='light']) {
-  --background: #fff;
+  --background: #e4e5f1;
   --tooltip-background: #333;
-  --subcontainer-background: #9394a5;
+  --subcontainer-background: #9394b5;
   --sprint-acitve: #9DCCC0;
   --modal-background: var(--background);
 
