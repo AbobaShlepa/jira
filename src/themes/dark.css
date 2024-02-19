@@ -11,10 +11,6 @@
 
   --search-result: #333;
   --column: #212121;
-}
 
-input:has(body[data-theme='dark']),
-textarea:has(body[data-theme='dark']) {
-  background-color: var(--modal-background);
-  color: var(--text-color);
+  --input-background: #333;
 }
