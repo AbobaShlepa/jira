@@ -1,4 +1,4 @@
-* {
+*:has(body[data-theme='light']) {
   --background: #fff;
   --tooltip-background: #333;
   --subcontainer-background: #9394a5;

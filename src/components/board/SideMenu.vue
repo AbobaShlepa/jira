@@ -74,8 +74,8 @@ button {
 .tooltip .tooltip-text {
   visibility: hidden;
   width: 120px;
-  background-color: var(--color3);
-  color: #fff;
+  background-color: var(--subcontainer-background);
+  color: var(--text-title);
   text-align: center;
   border-radius: 6px;
   padding: 5px 0;
@@ -93,7 +93,11 @@ button {
   visibility: visible;
 }
 
+.item {
+  background-color: var(--subcontainer-background);
+}
+
 .item:hover {
-  background: var(--color3);
+  background: var(--subcontainer-background);
 }
 </style>

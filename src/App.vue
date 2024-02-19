@@ -3,8 +3,10 @@
 </script>
 
 <template>
-  <router-view></router-view>
-  <SideMenu class="side-menu" />
+  <div id="content" data-theme="dark">
+    <router-view></router-view>
+    <SideMenu class="side-menu" />
+  </div>
 </template>
 
 <style scoped>
