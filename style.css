@@ -1,8 +1,9 @@
-@import url('/src/themes/dark.css');
+/* @import url('/src/themes/dark.css'); */
+@import url('/src/themes/light.css');
 
 body {
   margin: 0;
-  background-color: var(--color1);
+  background-color: var(--background);
   color: #FFFFFF;
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
@@ -11,7 +12,7 @@ body {
 .tooltip .tooltip-text {
   visibility: hidden;
   width: 350px;
-  background-color: var(--color2);
+  background-color: var(--tooltip-background);
   color: var(--text-color);
   border-radius: 6px;
   padding: 5px 0;
@@ -31,6 +32,6 @@ body {
 }
 
 input, textarea {
-  background-color: var(--color3);
+  background-color: var(--modal-background);
   color: var(--text-color);
 }

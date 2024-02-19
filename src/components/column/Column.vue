@@ -38,7 +38,7 @@
   margin: 10px;
   width: 200px;
   height: 600px;
-  background-color: #212121;
+  background-color: var(--column);
   text-align: center;
 }
 

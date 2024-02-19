@@ -54,6 +54,6 @@
 }
 
 .result:hover {
-  background-color: #333333;
+  background-color: var(--search-result);
 }
 </style>
