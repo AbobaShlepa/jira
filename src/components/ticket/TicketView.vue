@@ -22,7 +22,7 @@
   <div class="ticket-view" :class="viewTicket.enabled && viewTicket.ticketId ? '' : 'hidden'">
     <div v-if="ticket" :key="ticket.id">
       <div class="number">
-        # {{ ticket.id }}
+        #{{ ticket.id }}
       </div>
       <TitleEditor :title="ticket.title" :on-title-changed="changeTitleWithDelay" />
       <AssigneeSelector :assignee-id="ticket.assigneeId"
@@ -37,7 +37,7 @@
 .ticket-view {
   width: calc(100% - 20px);
   height: 100%;
-  background-color: var(--modal-background);
+  background-color: var(--background);
 }
 
 .hidden {

@@ -40,7 +40,7 @@
 
 <style scoped>
 .container {
-  background-color: var(--color3);
+  background-color: var(--subcontainer-background);
   width: 500px;
 }
 </style>

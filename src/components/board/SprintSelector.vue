@@ -34,7 +34,7 @@
   font-weight: 400;
   line-height: 1rem;
   font-size: large;
-  color: #888888;
+  color: var(--text-title);
   box-sizing: border-box;
   height: 35px;
   width: 100px;
@@ -47,7 +47,7 @@
 }
 
 .clicked {
-  box-shadow: inset 0 -2px 0 0 var(--color5);
+  box-shadow: inset 0 -2px 0 0 var(--sprint-acitve);
   color: var(--text-color) !important;
 }
 

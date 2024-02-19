@@ -1,14 +1,14 @@
 * {
-  --background: #fafafa;
-  --tooltip-background: #111;
-  --color3: #d2d3db;
-  --color4: #AAA;
-  --color5: #9DCCC0;
-  --modal-background: #1E1E1E;
+  --background: #fff;
+  --tooltip-background: #333;
+  --subcontainer-background: #9394a5;
+  --sprint-acitve: #9DCCC0;
+  --modal-background: var(--background);
 
-  --text-color: #FFFFFF;
+  --text-color: #000;
   --text-color2: #212121;
+  --text-title: #333;
 
   --search-result: #333;
-  --column: #212121;
+  --column: #484b6a;
 }

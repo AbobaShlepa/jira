@@ -3,7 +3,7 @@
   import type { Ticket } from '@/stores/tickets';
   import { useUserStore } from '@/stores/users';
   import { storeToRefs } from 'pinia';
-  import resolvePath from '@/helpers/pathResolver'; 
+  import resolvePath from '@/helpers/pathResolver';
 
   const props = defineProps<{
     ticket: Ticket
@@ -55,7 +55,7 @@
 .grid-title {
   grid-column-start: 1;
   grid-column-end: 4;
-  color: #888888;
+  color: var(--text-title);
 }
 
 .ticket-number {
@@ -65,7 +65,7 @@
 .card {
   text-align: center;
   height: 100px;
-  background-color: var(--color3);
+  background-color: var(--subcontainer-background);
   box-shadow: 0 0 1px 0;
   margin: 5px;
   cursor: -webkit-grab;

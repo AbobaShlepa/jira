@@ -30,8 +30,3 @@ body {
 .tooltip:hover .tooltip-text {
   visibility: visible;
 }
-
-input, textarea {
-  background-color: var(--modal-background);
-  color: var(--text-color);
-}

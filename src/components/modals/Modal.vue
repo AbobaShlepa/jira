@@ -34,7 +34,7 @@
   width: 600px;
   height: 500px;
 
-  border: 1px solid var(--color3);
+  border: 1px solid var(--subcontainer-background);
 }
 
 .modal {
@@ -45,13 +45,19 @@
 
 .header {
   height: 30px;
-  border-bottom: 1px solid var(--color3);
+  border-bottom: 1px solid var(--subcontainer-background);
+  color: var(--text-title);
 }
 
 .close {
   position: absolute;
   top: 10px;
   right: 20px;
+}
+
+.main {
+  background-color: var(--background);
+  color: var(--text-color);
 }
 
 .main,
