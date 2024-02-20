@@ -41,6 +41,7 @@
   border: 1px solid black;
   grid-template-columns: 70px 70px 50px;
   grid-template-rows: 35px auto;
+  color: var(--ticket-text);
 }
 
 .grid-item {
@@ -55,7 +56,6 @@
 .grid-title {
   grid-column-start: 1;
   grid-column-end: 4;
-  color: var(--text-title);
 }
 
 .ticket-number {
@@ -65,7 +65,7 @@
 .card {
   text-align: center;
   height: 100px;
-  background-color: var(--subcontainer-background);
+  background-color: var(--ticket-background);
   box-shadow: 0 0 1px 0;
   margin: 5px;
   cursor: -webkit-grab;

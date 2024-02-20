@@ -40,11 +40,14 @@
   height: 600px;
   background-color: var(--column);
   text-align: center;
+  border: 1px solid var(--column-border);
 }
 
 .title {
   border: 2px solid black;
   height: 60px;
+  background-color: var(--column-background);
+  color: var(--column-header-text);
 }
 
 .column-name {

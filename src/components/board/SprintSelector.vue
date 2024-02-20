@@ -47,7 +47,7 @@
 }
 
 .clicked {
-  box-shadow: inset 0 -2px 0 0 var(--sprint-acitve);
+  box-shadow: inset 0 -2px 0 0 var(--sprint-active);
   color: var(--text-color) !important;
 }
 

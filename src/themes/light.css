@@ -1,8 +1,8 @@
 *:has(body[data-theme='light']) {
-  --background: #e4e5f1;
+  --background: #CED4DC;
   --tooltip-background: #333;
-  --subcontainer-background: #9394b5;
-  --sprint-acitve: #9DCCC0;
+  --subcontainer-background: #596780;
+  --sprint-active: #47CC94;
   --modal-background: var(--background);
 
   --text-color: #000;
@@ -10,7 +10,14 @@
   --text-title: #333;
 
   --search-result: #333;
-  --column: #484b6a;
+  --column: #FFFFFF;
 
   --input-background: var(--subcontainer-background);
+
+  --column-background: #007BFF;
+  --column-header-text: #FFF;
+  --column-border: #CED4DC;
+
+  --ticket-background: #F5F6F7;
+  --ticket-text: #172B4D;
 }
