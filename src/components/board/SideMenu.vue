@@ -1,16 +1,13 @@
 <script setup lang="ts">
   import { usePermissionStore } from '@/stores/permissions';
   import { storeToRefs } from 'pinia';
-  import { useRouter } from 'vue-router';
   import resolvePath from '@/helpers/pathResolver';
 
   const store = usePermissionStore();
   const { showMenu, removeColumns, editColumns, addColumn, addTicket } = storeToRefs(store);
   const { togglePermission } = store;
 
-  const router = useRouter();
   const items = [
-    { onClick: () => router.push('/'), path: 'board3.svg', tooltipText: 'Board' },
     { onClick: () => togglePermission(addColumn.value), path: 'add-column.svg', tooltipText: 'Add column' },
     { onClick: () => togglePermission(removeColumns.value), path: 'remove-column.svg', tooltipText: 'Remove columns' },
     { onClick: () => togglePermission(editColumns.value), path: 'edit-column.svg', tooltipText: 'Edit columns' },
@@ -50,8 +47,8 @@
 .flex-container {
   display: flex;
   flex-flow: column wrap;
-  width: 50px;
-  --button-size: 50px;
+  width: var(--button-size);
+  --button-size: 40px;
 }
 
 button {
@@ -91,10 +88,6 @@ button {
 
 .tooltip:hover .tooltip-text {
   visibility: visible;
-}
-
-.item {
-  background-color: var(--subcontainer-background);
 }
 
 .item:hover {
