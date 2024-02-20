@@ -1,4 +1,4 @@
-*:has(body[data-theme='dark']) {
+:root:has(body[data-theme='dark']) {
   --background: #1A1A1A;
   --tooltip-background: #111;
   --subcontainer-background: #3A3A3A;
