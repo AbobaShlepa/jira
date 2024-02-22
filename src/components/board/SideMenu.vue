@@ -1,9 +1,14 @@
 <script setup lang="ts">
   import SideMenuItem from '@/components/board/SideMenuItem.vue';
   import { usePermissionStore } from '@/stores/permissions';
-  import { HiMenu } from "oh-vue-icons/icons";
   import { storeToRefs } from 'pinia';
   import { computed } from 'vue';
+  import ApplicationEdit from 'vue-material-design-icons/ApplicationEdit.vue';
+  import MenuIcon from 'vue-material-design-icons/Menu.vue';
+  import TabPlus from 'vue-material-design-icons/TabPlus.vue';
+  import TableColumnPlusAfter from 'vue-material-design-icons/TableColumnPlusAfter.vue';
+  import TableColumnRemove from 'vue-material-design-icons/TableColumnRemove.vue';
+
 
   const store = usePermissionStore();
   const { showMenu, removeColumns, editColumns, addColumn, addTicket } = storeToRefs(store);
@@ -14,10 +19,10 @@
   });
 
   const items = [
-    { onClick: () => togglePermission(addColumn.value), icon: HiMenu, tooltipText: 'Add column' },
-    { onClick: () => togglePermission(removeColumns.value), path: 'remove-column.svg', tooltipText: 'Remove columns' },
-    { onClick: () => togglePermission(editColumns.value), path: 'edit-column.svg', tooltipText: 'Edit columns' },
-    { onClick: () => togglePermission(addTicket.value), path: 'add-ticket.svg', tooltipText: 'Add ticket' },
+    { onClick: () => togglePermission(addColumn.value), icon: TableColumnPlusAfter, tooltipText: 'Add column' },
+    { onClick: () => togglePermission(removeColumns.value), icon: TableColumnRemove, tooltipText: 'Remove columns' },
+    { onClick: () => togglePermission(editColumns.value), icon: ApplicationEdit, tooltipText: 'Edit columns' },
+    { onClick: () => togglePermission(addTicket.value), icon: TabPlus, tooltipText: 'Add ticket' },
   ];
 
 </script>
@@ -25,12 +30,12 @@
 <template>
   <div class="flex-container">
     <SideMenuItem :on-click="() => togglePermission(showMenu)" :tooltip-text="showMenu.enabled ? 'Hide' : 'Show'">
-      <v-icon name="hi-menu" />
+      <MenuIcon :size="40" />
     </SideMenuItem>
 
     <div :style="menuStyle">
       <SideMenuItem v-for="item in items" :on-click="item.onClick" :tooltipText="item.tooltipText">
-        Icon!
+        <component :size="40" :is="item.icon" />
       </SideMenuItem>
     </div>
   </div>
