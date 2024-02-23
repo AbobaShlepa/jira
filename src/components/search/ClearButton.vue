@@ -1,4 +1,5 @@
 <script setup lang="ts">
+  import Close from 'vue-material-design-icons/Close.vue'
   defineProps<{
     onClear: () => void
   }>();
@@ -6,7 +7,9 @@
 
 <template>
   <button class="clear-icon-container" @click="onClear">
-    <img src="/clear.svg" class="icon" />
+    <div class="icon-wrapper">
+      <Close :size="45" />
+    </div>
   </button>
 </template>
 
@@ -19,12 +22,9 @@
   cursor: pointer;
 }
 
-.icon {
-  position: relative;
-  top: 3px;
-  left: 10px;
-  height: 30px;
-  width: 30px;
+.icon-wrapper {
+  margin-top: 5px;
+  margin-right: 5px;
 }
 
 button {
