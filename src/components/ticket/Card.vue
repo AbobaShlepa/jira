@@ -1,9 +1,9 @@
 <script setup lang="ts">
+  import resolvePath from '@/helpers/pathResolver';
   import { usePermissionStore } from '@/stores/permissions';
   import type { Ticket } from '@/stores/tickets';
   import { useUserStore } from '@/stores/users';
   import { storeToRefs } from 'pinia';
-  import resolvePath from '@/helpers/pathResolver';
 
   const props = defineProps<{
     ticket: Ticket
@@ -19,93 +19,74 @@
 
 <template>
   <div class="container card" :id="ticket.id.toString()" @click="() => toggleTicketPermission(viewTicket, ticket.id)">
-    <div class="grid-item grid-number">
-      <div class="ticket-number">
-        #{{ ticket.id }}
-      </div>
+    <div class="title">
+      {{ ticket.title }}
     </div>
-    <div class="grid-item avatar">
+    <span class="ticket-number">
+      #{{ ticket.id }}
+    </span>
+    <span class="avatar-container">
       <img :src="resolvePath(getUser(ticket.assigneeId).avatar)" class="avatar" />
-    </div>
-    <div class="grid-item grid-title">
-      <span>
-        {{ ticket.title }}
-      </span>
-    </div>
+    </span>
   </div>
 </template>
 
 <style scoped>
-.container {
-  display: grid;
-  border: 1px solid black;
-  grid-template-columns: 70px 70px 50px;
-  grid-template-rows: 35px auto;
-  color: var(--ticket-text);
-}
-
-.grid-item {
-  height: 50px;
-}
-
-.grid-number {
-  grid-column-start: 1;
-  grid-column-end: 3;
-}
-
-.grid-title {
-  grid-column-start: 1;
-  grid-column-end: 4;
-}
-
-.ticket-number {
-  line-height: 35px;
-}
-
-.card {
-  text-align: center;
-  height: 100px;
-  background-color: var(--ticket-background);
-  box-shadow: 0 0 1px 0;
-  margin: 5px;
-  cursor: -webkit-grab;
-}
-
-.number {
-  text-align: left;
-  margin-left: 10px;
-}
-
-.ticket-title {
-  text-align: left;
-  margin-left: 10px;
-  margin-right: 10px;
-}
-
-.shaking {
-  animation: tilt-shaking 0.15s infinite;
-  cursor: -webkit-grabbing;
-}
-
-@keyframes tilt-shaking {
-  0% {
-    transform: rotate(0deg);
+  .container {
+    border: 1px solid black;
+    color: var(--ticket-text);
   }
 
-  25% {
-    transform: rotate(3deg);
+  .title {
+    height: calc(100% - 45px);
+    text-align: left;
+    padding: 5px 0 0 5px;
   }
 
-  50% {
-    transform: rotate(0eg);
+  .ticket-number {
+    line-height: 35px;
+    float: left;
+    margin-left: 10px;
   }
 
-  75% {
-    transform: rotate(-3deg);
+  .card {
+    text-align: center;
+    height: 100px;
+    background-color: var(--ticket-background);
+    box-shadow: 0 0 1px 0;
+    margin: 5px;
+    cursor: -webkit-grab;
   }
 
-  100% {
-    transform: rotate(0deg);
+  .shaking {
+    animation: tilt-shaking 0.15s infinite;
+    cursor: -webkit-grabbing;
   }
-}
+
+  .avatar-container {
+    float: right;
+    padding: 0 5px 5px 0;
+  }
+
+  @keyframes tilt-shaking {
+    0% {
+      transform: rotate(0deg);
+    }
+
+    25% {
+      transform: rotate(3deg);
+    }
+
+    50% {
+      transform: rotate(0eg);
+    }
+
+    75% {
+      transform: rotate(-3deg);
+    }
+
+    100% {
+      transform: rotate(0deg);
+    }
+  }
 </style>
