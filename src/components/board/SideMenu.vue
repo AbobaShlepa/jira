@@ -18,6 +18,8 @@
     return { display: showMenu.value.enabled ? 'block' : 'none' };
   });
 
+  const iconSize = 40;
+
   const items = [
     { onClick: () => togglePermission(addColumn.value), icon: TableColumnPlusAfter, tooltipText: 'Add column' },
     { onClick: () => togglePermission(removeColumns.value), icon: TableColumnRemove, tooltipText: 'Remove columns' },
@@ -30,22 +32,22 @@
 <template>
   <div class="flex-container">
     <SideMenuItem :on-click="() => togglePermission(showMenu)" :tooltip-text="showMenu.enabled ? 'Hide' : 'Show'">
-      <MenuIcon :size="40" />
+      <MenuIcon :size="iconSize" />
     </SideMenuItem>
 
     <div :style="menuStyle">
       <SideMenuItem v-for="item in items" :on-click="item.onClick" :tooltipText="item.tooltipText">
-        <component :size="40" :is="item.icon" />
+        <component :size="iconSize" :is="item.icon" />
       </SideMenuItem>
     </div>
   </div>
 </template>
 
 <style scoped>
-  .flex-container {
-    display: flex;
-    flex-flow: column wrap;
-    width: var(--button-size);
-    --button-size: 40px;
-  }
+.flex-container {
+  display: flex;
+  flex-flow: column wrap;
+  width: var(--button-size);
+  --button-size: 40px;
+}
 </style>
