@@ -17,26 +17,26 @@
 </template>
 
 <style scoped>
-.avatar {
-  height: 35px;
-  border-radius: 50%;
-}
+  .avatar {
+    height: 35px;
+    border-radius: 50%;
+  }
 
-.user-container {
-  height: 35px;
-  display: inline-block;
-  width: 90%;
-}
+  .user-container {
+    height: 35px;
+    display: inline-block;
+    width: 90%;
+  }
 
-.user-container:hover {
-  border: 1px solid black;
-}
+  .user-container:hover {
+    border: 1px solid var(--subcontainer-background);
+  }
 
-.middle {
-  vertical-align: middle;
-}
+  .middle {
+    vertical-align: middle;
+  }
 
-.username {
-  margin-left: 15px;
-}
+  .username {
+    margin-left: 15px;
+  }
 </style>

@@ -1,4 +1,5 @@
 <script setup lang="ts">
+  import { debounce } from '@/helpers/functionHelper';
   import { usePermissionStore } from '@/stores/permissions';
   import { useTicketsStore } from '@/stores/tickets';
   import { storeToRefs } from 'pinia';
@@ -6,7 +7,6 @@
   import AssigneeSelector from './AssigneeSelector.vue';
   import DescriptionEditor from './DescriptionEditor.vue';
   import TitleEditor from './TitleEditor.vue';
-  import { debounce } from '@/helpers/functionHelper';
 
   const { viewTicket } = storeToRefs(usePermissionStore());
   const { getTicket, changeTitle, changeDescription, changeAssignee } = useTicketsStore();
@@ -34,13 +34,13 @@
 </template>
 
 <style scoped>
-.ticket-view {
-  width: calc(100% - 20px);
-  height: 100%;
-  background-color: var(--background);
-}
+  .ticket-view {
+    width: calc(100% - 20px);
+    height: 100%;
+    background-color: var(--modal-background);
+  }
 
-.hidden {
-  visibility: hidden;
-}
+  .hidden {
+    visibility: hidden;
+  }
 </style>

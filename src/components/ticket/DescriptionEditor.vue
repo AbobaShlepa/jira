@@ -16,10 +16,11 @@
 </template>
 
 <style scoped>
-.editor {
-  display: block;
-  width: 100%;
-  height: 70px;
-  resize: none;
-}
+  .editor {
+    display: block;
+    width: 100%;
+    height: 70px;
+    resize: none;
+    border: none;
+  }
 </style>

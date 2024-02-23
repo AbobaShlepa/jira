@@ -17,18 +17,18 @@
 </template>
 
 <style scoped>
-.title {
-  margin: 10px 5px 10px 5px;
-}
+  .title {
+    margin: 10px 5px 10px 5px;
+  }
 
-.title:hover {
-  border: 1px solid black;
-}
+  .title:hover {
+    border: 1px solid black;
+  }
 
-input {
-  width: -webkit-fill-available;
-  border-width: 0;
-  line-height: 150%;
-  height: 25px;
-}
+  input {
+    width: -webkit-fill-available;
+    border-width: 0;
+    line-height: 150%;
+    height: 25px;
+  }
 </style>
