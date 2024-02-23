@@ -32,12 +32,12 @@
 <template>
   <div class="flex-container">
     <SideMenuItem :on-click="() => togglePermission(showMenu)" :tooltip-text="showMenu.enabled ? 'Hide' : 'Show'">
-      <MenuIcon :size="iconSize" />
+      <MenuIcon :size="iconSize" fill-color="var(--icon-fill)" />
     </SideMenuItem>
 
     <div :style="menuStyle">
-      <SideMenuItem v-for="item in items" :on-click="item.onClick" :tooltipText="item.tooltipText">
-        <component :size="iconSize" :is="item.icon" />
+      <SideMenuItem v-for=" item  in  items " :on-click="item.onClick" :tooltipText="item.tooltipText">
+        <component :size="iconSize" :is="item.icon" fill-color="var(--icon-fill)" />
       </SideMenuItem>
     </div>
   </div>

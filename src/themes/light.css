@@ -1,7 +1,7 @@
 :root:has(body[data-theme='light']) {
-  --background: #CED4DC;
+  --background: #e6ebf0;
   --tooltip-background: #333;
-  --subcontainer-background: #596780;
+  --subcontainer-background: var(--background);
   --sprint-active: #47CC94;
   --modal-background: var(--background);
 
@@ -9,7 +9,7 @@
   --text-color2: #212121;
   --text-title: #333;
 
-  --search-result: #333;
+  --search-result: #c6cbd0;
   --column: #FFFFFF;
 
   --input-background: var(--subcontainer-background);
@@ -20,4 +20,6 @@
 
   --ticket-background: #F5F6F7;
   --ticket-text: #172B4D;
+
+  --icon-fill: rgb(95, 99, 104);
 }

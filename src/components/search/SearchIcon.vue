@@ -5,7 +5,7 @@
 <template>
   <span class="search-icon-container tooltip">
     <div class="icon-wrapper">
-      <SearchWeb :size="45" />
+      <SearchWeb :size="45" fill-color="var(--icon-fill)" />
     </div>
     <div class="tooltip-text">
       <p>Allows you to search through tickets</p>

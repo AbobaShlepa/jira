@@ -4,7 +4,7 @@
 body {
   margin: 0;
   background-color: var(--background);
-  color: #FFFFFF;
+  color: var(--text-color);
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 

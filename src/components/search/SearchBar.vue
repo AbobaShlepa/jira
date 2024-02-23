@@ -45,6 +45,7 @@
   background-color: var(--subcontainer-background);
   position: absolute;
   left: calc((100% - 550px) / 2);
+  box-shadow: 0 2px 8px 1px rgba(64, 60, 67, 1);
 }
 
 .search {

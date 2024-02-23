@@ -8,7 +8,7 @@
 <template>
   <button class="clear-icon-container" @click="onClear">
     <div class="icon-wrapper">
-      <Close :size="45" />
+      <Close :size="45" fill-color="var(--icon-fill)" />
     </div>
   </button>
 </template>
