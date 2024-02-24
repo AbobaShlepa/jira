@@ -6,7 +6,7 @@
 
   --modal-background: #1E1E1E;
   --modal-border: #3A3A3A;
-  --modal-header: #007BFF;
+  --modal-header: #212121;
   --modal-header-text: #FFF;
 
   --text-color: #FFFFFF;
@@ -18,7 +18,12 @@
 
   --input-background: #333;
 
+  /* --column-background: #007BFF;
+  --column-header-text: #FFF;
+  --column-border: #CED4DC; */
+
   --ticket-background: #3A3A3A;
+  --ticket-text: #FFF;
 
   --icon-fill: #fff;
 }
