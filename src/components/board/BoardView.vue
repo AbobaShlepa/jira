@@ -1,10 +1,10 @@
 <script setup lang="ts">
-  import Board from './Board.vue';
+  import AddColumnModal from '@/components/modals/AddColumnModal.vue';
   import AddTicketModal from '@/components/modals/AddTicketModal.vue';
   import EditTicketModal from '@/components/modals/EditTicketModal.vue';
-  import SearchBar from '@/components/search/SearchBar.vue'
+  import SearchBar from '@/components/search/SearchBar.vue';
+  import Board from './Board.vue';
   import SprintSelector from './SprintSelector.vue';
-  import AddColumnModal from '@/components/modals/AddColumnModal.vue';
 </script>
 
 <template>

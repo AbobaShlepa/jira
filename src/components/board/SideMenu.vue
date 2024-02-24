@@ -3,8 +3,10 @@
   import { usePermissionStore } from '@/stores/permissions';
   import { storeToRefs } from 'pinia';
   import { computed } from 'vue';
+  import ApplicationArrayOutline from 'vue-material-design-icons/ApplicationArrayOutline.vue';
   import ApplicationEdit from 'vue-material-design-icons/ApplicationEdit.vue';
   import MenuIcon from 'vue-material-design-icons/Menu.vue';
+  import Palette from 'vue-material-design-icons/Palette.vue';
   import TabPlus from 'vue-material-design-icons/TabPlus.vue';
   import TableColumnPlusAfter from 'vue-material-design-icons/TableColumnPlusAfter.vue';
   import TableColumnRemove from 'vue-material-design-icons/TableColumnRemove.vue';
@@ -24,12 +26,12 @@
   const iconSize = 40;
 
   const items = [
-    { onClick: () => router.push('/'), icon: TabPlus, tooltipText: 'Theme selector' },
+    { onClick: () => router.push('/'), icon: ApplicationArrayOutline, tooltipText: 'Board' },
     { onClick: () => togglePermission(addColumn.value), icon: TableColumnPlusAfter, tooltipText: 'Add column' },
     { onClick: () => togglePermission(removeColumns.value), icon: TableColumnRemove, tooltipText: 'Remove columns' },
     { onClick: () => togglePermission(editColumns.value), icon: ApplicationEdit, tooltipText: 'Edit columns' },
     { onClick: () => togglePermission(addTicket.value), icon: TabPlus, tooltipText: 'Add ticket' },
-    { onClick: () => router.push('/theme'), icon: TabPlus, tooltipText: 'Theme selector' },
+    { onClick: () => router.push('/theme'), icon: Palette, tooltipText: 'Theme selector' },
   ];
 
 </script>

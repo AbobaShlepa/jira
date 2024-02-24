@@ -1,13 +1,11 @@
 <script setup lang="ts">
   import SideMenu from '@/components/board/SideMenu.vue';
-  import ThemeSelectorOld from './components/board/ThemeSelectorOld.vue';
 </script>
 
 <template>
   <div id="content" data-theme="dark">
     <router-view></router-view>
     <div class="side-menu">
-      <ThemeSelectorOld />
       <SideMenu />
     </div>
   </div>

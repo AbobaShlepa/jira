@@ -1,12 +1,12 @@
 <script setup lang="ts">
-  import { useColumnsStore } from '@/stores/columns';
-  import Column from '@/components/column/Column.vue'
-  import draggable from 'vuedraggable';
-  import { storeToRefs } from 'pinia';
-  import { usePermissionStore } from '@/stores/permissions';
+  import Column from '@/components/column/Column.vue';
   import router from '@/router';
-  import { computed } from 'vue';
+  import { useColumnsStore } from '@/stores/columns';
+  import { usePermissionStore } from '@/stores/permissions';
   import { useTicketsStore } from '@/stores/tickets';
+  import { storeToRefs } from 'pinia';
+  import { computed } from 'vue';
+  import draggable from 'vuedraggable';
 
   const { columns, swapColumns } = useColumnsStore();
   const { editColumns } = storeToRefs(usePermissionStore());
@@ -34,8 +34,8 @@
 </template>
 
 <style scoped>
-.board {
-  display: flex;
-  justify-content: center;
-}
+  .board {
+    display: flex;
+    justify-content: center;
+  }
 </style>
