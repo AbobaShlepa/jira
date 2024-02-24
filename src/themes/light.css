@@ -1,5 +1,5 @@
 :root:has(body[data-theme='light']) {
-  --background: #f0f2f5;
+  --background: var(--light-background);
   --tooltip-background: #f0f2f5;
   --subcontainer-background: #f0f2f5;
   --sprint-active: #47CC94;
@@ -9,7 +9,7 @@
   --modal-header: #007BFF;
   --modal-header-text: #FFF;
 
-  --text-color: #000;
+  --text-color: var(--light-text-color);
   --text-color2: #212121;
   --text-title: #333;
 
@@ -22,8 +22,16 @@
   --column-header-text: #FFF;
   --column-border: #CED4DC;
 
-  --ticket-background: #F5F6F7;
+  --ticket-background: var(--light-ticket-background);
   --ticket-text: #172B4D;
 
   --icon-fill: rgb(95, 99, 104);
+}
+
+:root {
+  --light-background: #f0f2f5;
+  --light-text-color: #000;
+  --light-ticket-background: #f5f6f7;
+  --light-column-background: #fff;
+  --light-header-background: #007BFF;
 }

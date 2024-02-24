@@ -8,6 +8,7 @@
   import TabPlus from 'vue-material-design-icons/TabPlus.vue';
   import TableColumnPlusAfter from 'vue-material-design-icons/TableColumnPlusAfter.vue';
   import TableColumnRemove from 'vue-material-design-icons/TableColumnRemove.vue';
+  import { useRouter } from 'vue-router';
 
 
   const store = usePermissionStore();
@@ -18,13 +19,17 @@
     return { display: showMenu.value.enabled ? 'block' : 'none' };
   });
 
+  const router = useRouter();
+
   const iconSize = 40;
 
   const items = [
+    { onClick: () => router.push('/'), icon: TabPlus, tooltipText: 'Theme selector' },
     { onClick: () => togglePermission(addColumn.value), icon: TableColumnPlusAfter, tooltipText: 'Add column' },
     { onClick: () => togglePermission(removeColumns.value), icon: TableColumnRemove, tooltipText: 'Remove columns' },
     { onClick: () => togglePermission(editColumns.value), icon: ApplicationEdit, tooltipText: 'Edit columns' },
     { onClick: () => togglePermission(addTicket.value), icon: TabPlus, tooltipText: 'Add ticket' },
+    { onClick: () => router.push('/theme'), icon: TabPlus, tooltipText: 'Theme selector' },
   ];
 
 </script>
@@ -44,10 +49,10 @@
 </template>
 
 <style scoped>
-.flex-container {
-  display: flex;
-  flex-flow: column wrap;
-  width: var(--button-size);
-  --button-size: 40px;
-}
+  .flex-container {
+    display: flex;
+    flex-flow: column wrap;
+    width: var(--button-size);
+    --button-size: 40px;
+  }
 </style>

@@ -1,5 +1,5 @@
 :root:has(body[data-theme='dark']) {
-  --background: #1A1A1A;
+  --background: var(--dark-background);
   --tooltip-background: #111;
   --subcontainer-background: #3A3A3A;
   --sprint-active: #9DCCC0;
@@ -9,7 +9,7 @@
   --modal-header: #212121;
   --modal-header-text: #FFF;
 
-  --text-color: #FFFFFF;
+  --text-color: var(--dark-text-color);
   --text-color2: #212121;
   --text-title: #888;
 
@@ -26,4 +26,12 @@
   --ticket-text: #FFF;
 
   --icon-fill: #fff;
+}
+
+:root {
+  --dark-background: #1a1a1a;
+  --dark-text-color: #fff;
+  --dark-ticket-background: #3A3A3A;
+  --dark-column-background: #212121;
+  --dark-header-background: #212121;
 }
