@@ -34,7 +34,7 @@
     width: 600px;
     height: 500px;
 
-    border: 1px solid var(--subcontainer-background);
+    border: 1px solid var(--modal-border);
   }
 
   .modal {
@@ -44,9 +44,10 @@
   }
 
   .header {
-    height: 30px;
+    height: 40px;
     border-bottom: 1px solid var(--subcontainer-background);
-    color: var(--text-title);
+    color: var(--modal-header-text);
+    background-color: var(--modal-header);
   }
 
   .close {
@@ -62,6 +63,7 @@
 
   .main,
   .header-content {
-    margin: 5px 10px 0px 10px;
+    margin: 0 10px 0px 10px;
+    padding: 5px 0 0 0;
   }
 </style>

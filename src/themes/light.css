@@ -1,9 +1,13 @@
 :root:has(body[data-theme='light']) {
-  --background: #e6ebf0;
-  --tooltip-background: #333;
-  --subcontainer-background: var(--background);
+  --background: #f0f2f5;
+  --tooltip-background: #f0f2f5;
+  --subcontainer-background: #f0f2f5;
   --sprint-active: #47CC94;
-  --modal-background: var(--background);
+
+  --modal-background: #f0f2f5;
+  --modal-border: #CED4DC;
+  --modal-header: #007BFF;
+  --modal-header-text: #FFF;
 
   --text-color: #000;
   --text-color2: #212121;
@@ -12,7 +16,7 @@
   --search-result: #c6cbd0;
   --column: #FFFFFF;
 
-  --input-background: var(--subcontainer-background);
+  --input-background: #E5E5E5;
 
   --column-background: #007BFF;
   --column-header-text: #FFF;

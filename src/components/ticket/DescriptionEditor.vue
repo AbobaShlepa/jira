@@ -21,6 +21,5 @@
     width: 100%;
     height: 70px;
     resize: none;
-    border: none;
   }
 </style>

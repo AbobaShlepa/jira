@@ -3,7 +3,11 @@
   --tooltip-background: #111;
   --subcontainer-background: #3A3A3A;
   --sprint-active: #9DCCC0;
+
   --modal-background: #1E1E1E;
+  --modal-border: #3A3A3A;
+  --modal-header: #007BFF;
+  --modal-header-text: #FFF;
 
   --text-color: #FFFFFF;
   --text-color2: #212121;
