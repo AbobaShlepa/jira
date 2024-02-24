@@ -1,5 +1,5 @@
-import { computed, reactive, } from 'vue'
-import { defineStore } from 'pinia'
+import { defineStore } from 'pinia';
+import { computed, reactive, } from 'vue';
 import { getItem, setItem } from './storageExtensions';
 
 let counter = 1;
@@ -21,6 +21,16 @@ const defaultTickets: Ticket[] = [
   { id: counter++, title: 'Migrate edit ticket to modal', assigneeId: 2, columnId: 5, description: '', sprintId: 2 },
 
   { id: counter++, title: 'Add ticket types', assigneeId: 2, columnId: 1, description: '', sprintId: 3 },
+  
+  { id: counter++, title: 'Add theme selector', assigneeId: 2, columnId: 5, description: '', sprintId: 4 },
+  { id: counter++, title: 'Add light theme', assigneeId: 2, columnId: 5, description: '', sprintId: 4 },
+  { id: counter++, title: 'Add dark theme', assigneeId: 2, columnId: 5, description: '', sprintId: 4 },
+
+  
+  { id: counter++, title: 'Refactor sprint selector', assigneeId: 2, columnId: 5, description: '', sprintId: 5 },
+  { id: counter++, title: 'Add another theme', assigneeId: 2, columnId: 3, description: '', sprintId: 5 },
+  { id: counter++, title: 'Add yet another theme', assigneeId: 2, columnId: 1, description: '', sprintId: 5 },
+  { id: counter++, title: 'Add backlog', assigneeId: 2, columnId: 1, description: '', sprintId: 5 },
 ];
 const key = 'tickets';
 

@@ -8,11 +8,11 @@ const router = createRouter({
     {
       path: '/',
       component: BoardView,
-      redirect: '/board/1',
+      redirect: '/board',
       children: []
     },
     {
-      path: '/board/:id',
+      path: '/board',
       name: 'board',
       component: BoardView,
       children: []

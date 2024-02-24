@@ -1,5 +1,5 @@
 import { defineStore } from "pinia";
-import { reactive } from "vue";
+import { reactive, ref } from "vue";
 
 let counter = 1;
 
@@ -15,9 +15,11 @@ const key = 'sprints';
 
 export const useSprintStore = defineStore(key, () => {
   const sprints = defaultSprints;
+  const currentSprintId = ref(sprints[0].id);
 
   return {
-    sprints
+    sprints,
+    currentSprintId
   }
 })
 
