@@ -1,0 +1,37 @@
+:root:has(body[data-theme='green']) {
+  --background: var(--green-background);
+  --tooltip-background: #F5F5F5;
+  --subcontainer-background: #F5F5F5;
+  --sprint-active: #4CAF50;
+
+  --modal-background: #DFF0D8;
+  --modal-border: #8DB866;
+  --modal-header:  #5C9649;
+  --modal-header-text: #FFF;
+
+  --text-color: var(--green-text-color);
+  --text-color2: #212121;
+  --text-title: #333;
+
+  --search-result: #F5F5F5;
+  --column: #FFFFFF;
+
+  --input-background: #E5E5E5;
+
+  --column-background: #5C9649;
+  --column-header-text: #FFF;
+  --column-border: #558B2F;
+
+  --ticket-background: var(--green-ticket-background);
+  --ticket-text: #333333;
+
+  --icon-fill:  #333333;
+}
+
+:root {
+  --green-background: #E0F2F1;
+  --green-text-color: #333;
+  --green-ticket-background: #C8E6C9;
+  --green-column-background: #C8E6C9;
+  --green-header-background: #5C9649;
+}

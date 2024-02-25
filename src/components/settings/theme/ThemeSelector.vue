@@ -1,13 +1,24 @@
 <script setup lang="ts">
+  import { useThemeStore } from '@/stores/themeStore';
+  import { storeToRefs } from 'pinia';
+  import { watch } from 'vue';
   import DarkTheme from './DarkTheme.vue';
+  import GreenTheme from './GreenTheme.vue';
   import LightTheme from './LightTheme.vue';
+
+  const store = useThemeStore();
+  const { currentTheme } = storeToRefs(store);
+
+  watch(currentTheme, (value, _) => {
+    document.body.setAttribute('data-theme', value);
+  });
 </script>
 
 <template>
   <div class="grid-container">
     <DarkTheme class="item-a" />
     <LightTheme class="item-b" />
-    <LightTheme class="item-c" />
+    <GreenTheme class="item-c" />
     <DarkTheme class="item-d" />
   </div>
 </template>
