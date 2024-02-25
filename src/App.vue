@@ -1,5 +1,12 @@
 <script setup lang="ts">
   import SideMenu from '@/components/board/SideMenu.vue';
+  import { onMounted } from 'vue';
+  import { getItem } from './stores/storageExtensions';
+
+  onMounted(function () {
+    const theme = getItem<string>('currentTheme') ?? 'dark';
+    document.body.setAttribute('data-theme', theme);
+  })
 </script>
 
 <template>

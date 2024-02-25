@@ -10,7 +10,7 @@
   const { currentTheme } = storeToRefs(store);
 
   watch(currentTheme, (value, _) => {
-    document.body.setAttribute('data-theme', value);
+    document.body.setAttribute('data-theme', value ?? 'dark');
   });
 </script>
 
