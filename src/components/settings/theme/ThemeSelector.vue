@@ -5,6 +5,7 @@
   import DarkTheme from './DarkTheme.vue';
   import GreenTheme from './GreenTheme.vue';
   import LightTheme from './LightTheme.vue';
+  import OrangeTheme from './OrangeTheme.vue';
 
   const store = useThemeStore();
   const { currentTheme } = storeToRefs(store);
@@ -19,7 +20,7 @@
     <DarkTheme class="item-a" />
     <LightTheme class="item-b" />
     <GreenTheme class="item-c" />
-    <DarkTheme class="item-d" />
+    <OrangeTheme class="item-d" />
   </div>
 </template>
 

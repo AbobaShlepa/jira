@@ -1,0 +1,37 @@
+:root:has(body[data-theme='orange']) {
+  --background: var(--orange-background);
+  --tooltip-background: #f0f2f5;
+  --subcontainer-background: #f0f2f5;
+  --sprint-active: #47CC94;
+
+  --modal-background: #f0f2f5;
+  --modal-border: #CED4DC;
+  --modal-header: #007BFF;
+  --modal-header-text: #FFF;
+
+  --text-color: var(--orange-text-color);
+  --text-color2: #212121;
+  --text-title: #333;
+
+  --search-result: #c6cbd0;
+  --column: #FFFFFF;
+
+  --input-background: #E5E5E5;
+
+  --column-background: #FFDAB9;
+  --column-header-text: #C0AFAF;
+  --column-border: #CED4DC;
+
+  --ticket-background: var(--orange-ticket-background);
+  --ticket-text: #172B4D;
+
+  --icon-fill: #FF8C94;
+}
+
+:root {
+  --orange-background: #FFDAB9;
+  --orange-text-color: #D3D3D3;
+  --orange-ticket-background: #FFE4C4;
+  --orange-column-background: #FFE4C4;
+  --orange-header-background: #007BFF;
+}

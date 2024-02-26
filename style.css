@@ -1,6 +1,7 @@
 @import url('/src/themes/dark.css');
 @import url('/src/themes/light.css');
 @import url('/src/themes/green.css');
+@import url('/src/themes/orange.css');
 
 body {
   margin: 0;
