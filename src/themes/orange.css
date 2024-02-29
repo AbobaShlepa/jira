@@ -4,10 +4,11 @@
   --subcontainer-background: #f0f2f5;
   --sprint-active: #47CC94;
 
-  --modal-background: #f0f2f5;
-  --modal-border: #CED4DC;
-  --modal-header: #007BFF;
-  --modal-header-text: #FFF;
+  --modal-background: #E6E6FA;
+  --modal-border: #DCDCDC;
+  --modal-header: #D8BFD8;
+  --modal-header-text: #800080;
+  --modal-text: #696969;
 
   --text-color: var(--orange-text-color);
   --text-color2: #212121;
@@ -18,20 +19,20 @@
 
   --input-background: #E5E5E5;
 
-  --column-background: #FFDAB9;
-  --column-header-text: #C0AFAF;
+  --column-background: #800080;
+  --column-header-text: #D8BFD8;
   --column-border: #CED4DC;
 
   --ticket-background: var(--orange-ticket-background);
   --ticket-text: #172B4D;
 
-  --icon-fill: #FF8C94;
+  --icon-fill: #8B5F92;
 }
 
 :root {
-  --orange-background: #FFDAB9;
-  --orange-text-color: #D3D3D3;
-  --orange-ticket-background: #FFE4C4;
+  --orange-background: #F8F8FF;
+  --orange-text-color: #696969;
+  --orange-ticket-background: #E6E6FA;
   --orange-column-background: #FFE4C4;
-  --orange-header-background: #007BFF;
+  --orange-header-background: #800080;
 }
