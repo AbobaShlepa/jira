@@ -44,6 +44,7 @@
     position: relative;
     left: 20%;
     margin-bottom: 20px;
+    width: 50%;
   }
 
   .text {
@@ -56,7 +57,6 @@
 
   .column {
     border: 1px solid v-bind(textColor);
-    width: 60%;
     background-color: v-bind(columnBackground);
   }
 
