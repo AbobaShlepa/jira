@@ -18,7 +18,8 @@
 
   --input-background: #E5E5E5;
 
-  --column-background: #007BFF;
+  --column-header-background: #007BFF;
+  --column-background: var(--light-column-background);
   --column-header-text: #FFF;
   --column-border: #CED4DC;
 

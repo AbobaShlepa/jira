@@ -1,9 +1,9 @@
 <script setup lang="ts">
-  import { useColumnsStore } from '@/stores/columns';
   import TicketContainer from '@/components/ticket/TicketContainer.vue';
+  import { useColumnsStore } from '@/stores/columns';
+  import { usePermissionStore } from '@/stores/permissions';
   import { type Ticket } from '@/stores/tickets';
   import { storeToRefs } from 'pinia';
-  import { usePermissionStore } from '@/stores/permissions';
 
   const props = defineProps<{
     columnId: number,
@@ -34,31 +34,31 @@
 </template>
 
 <style scoped>
-.column {
-  margin: 10px;
-  width: 200px;
-  height: 600px;
-  background-color: var(--column);
-  text-align: center;
-  border: 1px solid var(--column-border);
-}
+  .column {
+    margin: 10px;
+    width: 200px;
+    height: 600px;
+    background-color: var(--column-background);
+    text-align: center;
+    border: 1px solid var(--column-border);
+  }
 
-.title {
-  border: 2px solid black;
-  height: 60px;
-  background-color: var(--column-background);
-  color: var(--column-header-text);
-}
+  .title {
+    border: 2px solid black;
+    height: 60px;
+    background-color: var(--column-header-background);
+    color: var(--column-header-text);
+  }
 
-.column-name {
-  display: inline-block;
-  margin-right: 20px;
-}
+  .column-name {
+    display: inline-block;
+    margin-right: 20px;
+  }
 
-.flex-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-}
+  .flex-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+  }
 </style>

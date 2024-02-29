@@ -18,8 +18,9 @@
 
   --input-background: #333;
 
-  /* --column-background: #007BFF;
-  --column-header-text: #FFF;
+  --column-header-background: var(--dark-column-background);
+  --column-background: var(--dark-column-background);
+  /* --column-header-text: #FFF;
   --column-border: #CED4DC; */
 
   --ticket-background: #3A3A3A;

@@ -1,0 +1,39 @@
+:root:has(body[data-theme='purple']) {
+  --background: var(--purple-background);
+  --tooltip-background: #f0f2f5;
+  --subcontainer-background: #f0f2f5;
+  --sprint-active: #47CC94;
+
+  --modal-background: #E6E6FA;
+  --modal-border: #DCDCDC;
+  --modal-header: #D8BFD8;
+  --modal-header-text: #800080;
+  --modal-text: #696969;
+
+  --text-color: var(--purple-text-color);
+  --text-color2: #212121;
+  --text-title: #333;
+
+  --search-result: #c6cbd0;
+  --column: var(--purple-column-background);
+
+  --input-background: #E5E5E5;
+
+  --column-header-background: var(--purple-header-background);
+  --column-background: var(--purple-column-background);
+  --column-header-text: #D8BFD8;
+  --column-border: #CED4DC;
+
+  --ticket-background: var(--purple-ticket-background);
+  --ticket-text: #172B4D;
+
+  --icon-fill: #8B5F92;
+}
+
+:root {
+  --purple-background: #F8F8FF;
+  --purple-text-color: #696969;
+  --purple-ticket-background: #E6E6FA;
+  --purple-column-background: #FFFFFF;
+  --purple-header-background: #800080;
+}
