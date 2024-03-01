@@ -18,22 +18,22 @@
     const newIndex = event.moved.newIndex
     swapColumns(oldIndex, newIndex);
   }
+
+  const justifyStyle = '';
 </script>
 
 <template>
-  <div class="board">
-    <draggable v-model="columns" class="board" @change="swap" group="columns" item-key="id"
-      :disabled="!editColumns.enabled">
-      <template #item="{ element }">
-        <Column :column-id="element.id" :tickets="computed(() => getTickets(element.id, currentSprintId)).value" />
-      </template>
-    </draggable>
-  </div>
+  <draggable v-model="columns" class="board" @change="swap" group="columns" item-key="id"
+    :disabled="!editColumns.enabled">
+    <template #item="{ element }">
+      <Column :column-id="element.id" :tickets="computed(() => getTickets(element.id, currentSprintId)).value" />
+    </template>
+  </draggable>
 </template>
 
 <style scoped>
-  .board {
-    display: flex;
-    justify-content: center;
-  }
+.board {
+  display: flex;
+  justify-content: safe center;
+}
 </style>
