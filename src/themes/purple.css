@@ -6,8 +6,8 @@
 
   --modal-background: #E6E6FA;
   --modal-border: #DCDCDC;
-  --modal-header: #D8BFD8;
-  --modal-header-text: #800080;
+  --modal-header: var(--purple-header-background);
+  --modal-header-text: #D8BFD8;
   --modal-text: #696969;
 
   --text-color: var(--purple-text-color);
@@ -17,7 +17,7 @@
   --search-result: #c6cbd0;
   --column: var(--purple-column-background);
 
-  --input-background: #E5E5E5;
+  --input-background: #bfadcc;
 
   --column-header-background: var(--purple-header-background);
   --column-background: var(--purple-column-background);
@@ -32,7 +32,7 @@
 
 :root {
   --purple-background: #F8F8FF;
-  --purple-text-color: #696969;
+  --purple-text-color: #111;
   --purple-ticket-background: #E6E6FA;
   --purple-column-background: #FFFFFF;
   --purple-header-background: #800080;
