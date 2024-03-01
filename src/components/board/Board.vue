@@ -18,8 +18,6 @@
     const newIndex = event.moved.newIndex
     swapColumns(oldIndex, newIndex);
   }
-
-  const justifyStyle = '';
 </script>
 
 <template>
@@ -32,8 +30,8 @@
 </template>
 
 <style scoped>
-.board {
-  display: flex;
-  justify-content: safe center;
-}
+  .board {
+    display: flex;
+    justify-content: safe center;
+  }
 </style>
