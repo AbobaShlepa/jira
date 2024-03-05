@@ -1,23 +1,23 @@
 <script setup lang="ts">
-  import Column from '@/components/column/Column.vue';
-  import { useColumnsStore } from '@/stores/columns';
-  import { usePermissionStore } from '@/stores/permissions';
-  import { useSprintStore } from '@/stores/sprints';
-  import { useTicketsStore } from '@/stores/tickets';
-  import { storeToRefs } from 'pinia';
-  import { computed } from 'vue';
-  import draggable from 'vuedraggable';
+import Column from '@/components/column/Column.vue';
+import { useColumnsStore } from '@/stores/columns';
+import { usePermissionStore } from '@/stores/permissions';
+import { useSprintStore } from '@/stores/sprints';
+import { useTicketsStore } from '@/stores/tickets';
+import { storeToRefs } from 'pinia';
+import { computed } from 'vue';
+import draggable from 'vuedraggable';
 
-  const { columns, swapColumns } = useColumnsStore();
-  const { editColumns } = storeToRefs(usePermissionStore());
-  const { getTickets } = useTicketsStore();
-  const { currentSprintId } = storeToRefs(useSprintStore());
+const { columns, swapColumns } = useColumnsStore();
+const { editColumns } = storeToRefs(usePermissionStore());
+const { getTickets } = useTicketsStore();
+const { currentSprintId } = storeToRefs(useSprintStore());
 
-  function swap(event: any) {
-    const oldIndex = event.moved.oldIndex;
-    const newIndex = event.moved.newIndex
-    swapColumns(oldIndex, newIndex);
-  }
+function swap(event: any) {
+  const oldIndex = event.moved.oldIndex;
+  const newIndex = event.moved.newIndex
+  swapColumns(oldIndex, newIndex);
+}
 </script>
 
 <template>
@@ -30,8 +30,11 @@
 </template>
 
 <style scoped>
-  .board {
-    display: flex;
-    justify-content: safe center;
-  }
+.board {
+  display: flex;
+  max-width: 100vw;
+  overflow-x: auto;
+  overflow-y: hidden;
+  gap: 10px;
+}
 </style>
