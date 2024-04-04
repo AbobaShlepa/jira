@@ -1,64 +1,72 @@
 <script setup lang="ts">
 
-  defineProps<{
-    onClick: () => void,
-    tooltipText: string
-  }>();
+defineProps<{
+  onClick: () => void,
+  tooltipText: string
+}>();
 
 </script>
 
 <template>
-  <button @click="onClick" class="tooltip item">
-    <slot>
-      Here could be icon
-    </slot>
-    <span class="tooltip-text">
-      {{ tooltipText }}
-    </span>
-  </button>
+  <div class="container">
+    <button @click="onClick" class="tooltip item">
+      <slot>
+        Here could be icon
+      </slot>
+      <span class="tooltip-text">
+        {{ tooltipText }}
+      </span>
+    </button>
+  </div>
 </template>
 
 <style scoped>
-  button {
-    all: unset;
-    height: var(--button-size);
-    width: var(--button-size);
-    cursor: pointer;
-  }
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-  .icon {
-    height: var(--button-size);
-    width: var(--button-size);
-  }
+button {
+  all: unset;
+  height: var(--button-size);
+  width: var(--button-size);
+  cursor: pointer;
+}
 
-  .tooltip {
-    position: relative;
-    display: inline-block;
-  }
+.icon {
+  height: var(--button-size);
+  width: var(--button-size);
+}
 
-  .tooltip .tooltip-text {
-    visibility: hidden;
-    width: 120px;
-    background-color: var(--subcontainer-background);
-    color: var(--text-title);
-    text-align: center;
-    border-radius: 6px;
-    padding: 5px 0;
-    min-height: calc(var(--button-size) - 20px);
-    height: fit-content;
-    line-height: calc(var(--button-size) - 20px);
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
 
-    position: absolute;
-    z-index: 1;
-    top: 5px;
-    right: 105%;
-  }
+.tooltip .tooltip-text {
+  visibility: hidden;
+  width: 120px;
+  background-color: var(--subcontainer-background);
+  color: var(--text-title);
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  min-height: calc(var(--button-size) - 20px);
+  height: fit-content;
+  line-height: calc(var(--button-size) - 20px);
 
-  .tooltip:hover .tooltip-text {
-    visibility: visible;
-  }
+  position: absolute;
+  z-index: 1;
+  top: 5px;
+  right: 105%;
+}
 
-  .item:hover {
-    background: var(--subcontainer-background);
-  }
+.tooltip:hover .tooltip-text {
+  visibility: visible;
+}
+
+.item:hover {
+  background: var(--subcontainer-background);
+}
 </style>

@@ -23,8 +23,8 @@ onMounted(function () {
   position: fixed;
   display: flex;
   gap: 10px;
-  right: 5px;
-  top: 5px;
+  right: 0px;
+  top: 0px;
 }
 
 #content {
